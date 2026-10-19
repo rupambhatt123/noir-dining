@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Force text selection across the entire website */
+  *, *::before, *::after {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    overflow-x: hidden;
+  }
+
+  body {
+    /* Luxury Warm Golden Theme with Visible Ambient Lighting */
+    background-color: #F6F0E4;
+    background-image: 
+      radial-gradient(circle at 12% 18%, rgba(197, 160, 89, 0.32) 0%, transparent 45%),
+      radial-gradient(circle at 88% 38%, rgba(212, 175, 55, 0.26) 0%, transparent 48%),
+      radial-gradient(circle at 45% 82%, rgba(184, 142, 68, 0.24) 0%, transparent 45%),
+      radial-gradient(rgba(197, 160, 89, 0.22) 1.5px, transparent 1.5px);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 28px 28px;
+    background-attachment: fixed;
+    color: #1a1a1a;
+    font-family: inherit;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* GPU aur Browser Rendering Optimization */
+  img {
+    content-visibility: auto;
+  }
+
+  /* Luxury Gold Text Selection */
+  ::selection {
+    background-color: #c5a059 !important;
+    color: #ffffff !important;
+  }
+
+  /* Slim Luxury Gold Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F6F0E4;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #c5a059;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #996515;
+  }
+}
+
+@layer utilities {
+  /* Shiny Metallic Gold Gradient Text (Standard + Vendor Prefix) */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #f7e1b5 0%, #c5a059 50%, #8c6426 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Static Ambient Luxury Gold Glows */
+  .glow-gold-sm {
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.3);
+  }
+
+  .glow-gold-md {
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.45);
+  }
+
+  /* Hardware Accelerated Utility */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+  }
+}

@@ -1,0 +1,632 @@
+{
+  "common": {
+    "siteName": "Noir Dining",
+    "phone": "+1 000 000 000",
+    "email": "info@xyz.com",
+    "address": "Noir Dining Restaurant & Fine Dining, Bordeaux, France",
+    "socialLinks": {
+      "facebook": "https://facebook.com",
+      "instagram": "https://instagram.com",
+      "twitter": "https://twitter.com",
+      "linkedin": "https://linkedin.com",
+      "youtube": "https://youtube.com"
+    }
+  },
+  "categories": {
+    "Restaurant": {
+      "templateComponents": {
+        "template-1": {
+          "shared": {
+            "Header": "NoirHeader1",
+            "Footer": "NoirFooter1"
+          },
+          "pages": {
+            "home": {
+              "components": [
+                { "key": "Banner", "component": "NoirBanner1" },
+                { "key": "About", "component": "NoirAbout1" },
+                { "key": "CulinaryStats", "component": "NoirCulinaryStats1" },
+                { "key": "Ambience", "component": "NoirAmbience1" },
+                { "key": "Testimonials", "component": "NoirTestimonials1" },
+                { "key": "Team", "component": "NoirTeam1" }
+              ]
+            },
+            "about": {
+              "components": [
+                { "key": "PageBanner", "component": "NoirPageBanner1" },
+                { "key": "About", "component": "NoirAbout1" },
+                { "key": "Philosophy", "component": "NoirPhilosophy1" },
+                { "key": "Testimonials", "component": "NoirTestimonials1" }
+              ]
+            },
+            "menu": {
+              "components": [
+                { "key": "PageBanner", "component": "NoirPageBanner1" },
+                { "key": "Menu", "component": "NoirMenu1" }
+              ]
+            },
+            "gallery": {
+              "components": [
+                { "key": "PageBanner", "component": "NoirPageBanner1" },
+                { "key": "Gallery", "component": "NoirGallery1" }
+              ]
+            },
+            "testimonials": {
+              "components": [
+                { "key": "PageBanner", "component": "NoirPageBanner1" },
+                { "key": "TestimonialsPage", "component": "NoirTestimonialsPage1" }
+              ]
+            },
+            "blog": {
+              "components": [
+                { "key": "PageBanner", "component": "NoirPageBanner1" },
+                { "key": "Blog", "component": "NoirBlog1" }
+              ]
+            },
+            "blogDetail": {
+              "components": [
+                { "key": "PageBanner", "component": "NoirPageBanner1" },
+                { "key": "BlogDetail", "component": "NoirBlogDetail1" }
+              ]
+            },
+            "contact": {
+              "components": [
+                { "key": "PageBanner", "component": "NoirPageBanner1" },
+                { "key": "Contact", "component": "NoirContact1" }
+              ]
+            }
+          }
+        }
+      },
+      "sections": {
+        "Header": {
+          "variants": {
+            "NoirHeader1": {
+              "logoImage": "/logo.png",
+              "logoText": "NOIR",
+              "tagline": "DINING",
+              "navLinks": [
+                { "title": "Home", "path": "/" },
+                { "title": "About Us", "path": "/about" },
+                { "title": "Our Menu", "path": "/menu" },
+                { "title": "Our Chefs", "path": "/team" },
+                { "title": "Gallery", "path": "/gallery" },
+                { "title": "Testimonials", "path": "/testimonials" },
+                { "title": "Blog", "path": "/blog" },
+                { "title": "Contact Us", "path": "/contact" }
+              ],
+              "ctaButton": {
+                "text": "BOOK A TABLE",
+                "path": "/reservation"
+              }
+            }
+          }
+        },
+        "Banner": {
+          "variants": {
+            "NoirBanner1": {
+              "logoImage": "/logo.png",
+              "logoText": "NOIR",
+              "tagline": "DINING",
+              "backgroundImage": "/hero.png",
+              "ctaButton": {
+                "text": "BOOK A TABLE",
+                "path": "/reservation"
+              }
+            }
+          }
+        },
+        "PageBanner": {
+          "variants": {
+            "NoirPageBanner1": {
+              "backgroundImage": "/p.jpg"
+            }
+          }
+        },
+        "About": {
+          "variants": {
+            "NoirAbout1": {
+              "badge": "REFRESH YOUR TASTE BUDS",
+              "titleLine1": "Enjoy An",
+              "titleHighlight": "Exceptional",
+              "titleLine2": "Journey of Taste",
+              "description": "We see our customers as invited guests to a party, and we are the hosts. It's our job every day to make every important aspect of the customer experience a little bit better.",
+              "ctaText": "DISCOVER MORE",
+              "ctaLink": "/about",
+              "imagePrimary": "/s2.png",
+              "imageSecondary": "/s1.png"
+            }
+          }
+        },
+        "CulinaryStats": {
+          "variants": {
+            "NoirCulinaryStats1": {
+              "badge": "CULINARY EXCELLENCE",
+              "title": "Passion in",
+              "titleHighlight": "Every Plate",
+              "description": "Our chefs combine traditional techniques with modern flavours to create dishes that are both authentic and innovative. Each plate is a work of art, crafted with care and attention to detail.",
+              "image": "/s4.avif",
+              "counters": [
+                { "id": 1, "value": "10+", "label": "Years of Excellence" },
+                { "id": 2, "value": "50+", "label": "Signature Dishes" },
+                { "id": 3, "value": "10K+", "label": "Happy Guests" }
+              ]
+            }
+          }
+        },
+        "Philosophy": {
+          "variants": {
+            "NoirPhilosophy1": {
+              "badge": "QUALITY & BALANCE",
+              "title": "OUR FOOD",
+              "titleHighlight": "PHILOSOPHY",
+              "description": "Simple and balanced. At Noir Dining, we bring together flavours and specialties from Italy and beyond to create our own culinary world, full of surprising artistry.",
+              "imagePrimary": "/r.jpg",
+              "imageSecondary": "/s2.png"
+            }
+          }
+        },
+        "Ambience": {
+          "variants": {
+            "NoirAmbience1": {
+              "badge": "OUR AMBIENCE",
+              "title": "A Perfect Setting for Every Occasion",
+              "description": "Step into a warm and elegant space designed to make your dining experience truly special. Whether it's a romantic dinner, a family gathering, or a celebration, our ambience sets the perfect mood.",
+              "image": "/s5.avif"
+            }
+          }
+        },
+        "Menu": {
+          "variants": {
+            "NoirMenu1": {
+              "categories": [
+                {
+                  "id": "starters",
+                  "badge": "REFRESH YOUR TASTE BUDS",
+                  "titlePart1": "STAR",
+                  "titlePart2": "TERS",
+                  "iconType": "cutlery",
+                  "image": "/starter.jpg",
+                  "items": [
+                    { "name": "Purple Corn Tostada", "price": "$36", "desc": "Ricotta, goat cheese, beetroot and datterini." },
+                    { "name": "Bruno's Scribble", "price": "$30", "desc": "Culatello, Spalla Cotta, Mortadella, Culacciona." },
+                    { "name": "Fresh Oysters Dozen", "price": "$59", "desc": "Our selection of fresh oysters, limes." },
+                    { "name": "Wild Mushroom Arancini", "price": "$18", "desc": "Porcini purée, parmesan, basil." },
+                    { "name": "Garlic Bread", "price": "$9", "desc": "Cucumber, cherry tomatoes, feta & house dressing." },
+                    { "name": "Crab & Prawn Bites", "price": "$21", "desc": "Seeded sourdough, avocado, crab & prawn meat." },
+                    { "name": "Garden Salad", "price": "$18", "desc": "Cucumber, cherry tomatoes, feta & house dressing." },
+                    { "name": "Pumpkin Salad", "price": "$21", "desc": "Organic quinoa, wild rocket, goats cheese, honey dressing." }
+                  ]
+                },
+                {
+                  "id": "main-courses",
+                  "badge": "SAVOUR THE FINEST MEALS",
+                  "titlePart1": "MAIN ",
+                  "titlePart2": "COURSES",
+                  "iconType": "leaf",
+                  "image": "/s2.png",
+                  "items": [
+                    { "name": "Crispy Skin Chicken", "price": "$33", "desc": "Ricotta, radicchio, prosciutto salad, cabernet." },
+                    { "name": "Grilled Barramundi", "price": "$39", "desc": "Potato, Rocket, Garnished with Picked Ginger." },
+                    { "name": "Lobster", "price": "$58", "desc": "Whole Fresh Western Australia Lobster." },
+                    { "name": "Fish & Chips", "price": "$33", "desc": "Atlantic cod fillet, chips, salad, tartare, lemon." },
+                    { "name": "Seafood Curry", "price": "$39", "desc": "Mixed prawns, Mussels, Calamari and Fish." },
+                    { "name": "Baked Salmon", "price": "$42", "desc": "Fresh salmon fillet marinated in coconut cream." },
+                    { "name": "Seafood Platter", "price": "$110", "desc": "Blue swimmer crab, Tasmanian mussels, Crystal Bay prawns" },
+                    { "name": "Fillets of Red Mullet", "price": "$38", "desc": "With a pickled walnut and spring onion dressing." },
+                    { "name": "Salt Aged Sirloin Steak", "price": "$42", "desc": "Served with a parsley and pickled walnut salad." },
+                    { "name": "Prawn Burger", "price": "$19", "desc": "With a spiced tartare sauce and chips." }
+                  ]
+                },
+                {
+                  "id": "desserts",
+                  "badge": "SOMETHING SWEET TO END",
+                  "titlePart1": "DESS",
+                  "titlePart2": "ERTS",
+                  "iconType": "fleur",
+                  "image": "/dessert.avif",
+                  "items": [
+                    { "name": "Home-made Citrus Tart", "price": "$15", "desc": "Served with vanilla gelato." },
+                    { "name": "Apple & Blueberry Crumble", "price": "$16", "desc": "Served with vanilla gelato & blueberry compote." },
+                    { "name": "Basque Cheesecake", "price": "$17", "desc": "Puff pastry, poached rhubarb, cheesecake mousse." },
+                    { "name": "Red Cheese Mousse", "price": "$18", "desc": "Cheese mousse, hazelnut & chocolate snow, strawberry." },
+                    { "name": "Warm Apple Cake", "price": "$18", "desc": "Apple, sorbet, brown butter, puff pastry." },
+                    { "name": "Classic Tiramisu", "price": "$15", "desc": "Espresso-soaked ladyfingers, whipped cream, mascarpone." }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "Testimonials": {
+          "variants": {
+            "NoirTestimonials1": {
+              "badge": "WHAT OUR GUESTS SAY",
+              "title": "TESTIMONIALS",
+              "items": [
+                {
+                  "id": 1,
+                  "quote": "The food, ambience and service were exceptional. Every dish was perfectly prepared and full of flavour. It truly made our special occasion even more memorable.",
+                  "name": "DANIEL SAMSON",
+                  "role": "Sous-Chef",
+                  "avatar": "https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&q=80&w=300"
+                },
+                {
+                  "id": 2,
+                  "quote": "An extraordinary culinary voyage. The wine pairings and attentiveness of the team made our anniversary evening unforgettable.",
+                  "name": "CLAIRE DE ROCHE",
+                  "role": "Food & Wine Critic",
+                  "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300"
+                }
+              ]
+            }
+          }
+        },
+        "TestimonialsPage": {
+          "variants": {
+            "NoirTestimonialsPage1": {
+              "badge": "WHAT OUR GUESTS SAY",
+              "title": "TESTIMONIALS",
+              "titleHighlight": "",
+              "description": "Real experiences from our valued guests who have enjoyed our food, service and atmosphere.",
+              "items": [
+                {
+                  "id": 1,
+                  "name": "Priya Sharma",
+                  "location": "New Delhi, India",
+                  "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400",
+                  "quote": "Amazing food, beautiful ambience and excellent service! Every dish was full of authentic flavours. Highly recommended!"
+                },
+                {
+                  "id": 2,
+                  "name": "Rahul Mehta",
+                  "location": "Mumbai, India",
+                  "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
+                  "quote": "One of the best dining experiences I've had. The food was outstanding and the staff was very attentive. Will definitely visit again!"
+                },
+                {
+                  "id": 3,
+                  "name": "Sneha Kapoor",
+                  "location": "Bengaluru, India",
+                  "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400",
+                  "quote": "The atmosphere is so warm and welcoming. Loved the presentation and taste of every dish. A perfect place for family dinners."
+                },
+                {
+                  "id": 4,
+                  "name": "Amit Singh",
+                  "location": "Chandigarh, India",
+                  "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400",
+                  "quote": "Exceptional service and delicious food. The attention to detail in every dish is impressive. Truly a memorable dining experience."
+                },
+                {
+                  "id": 5,
+                  "name": "Karan Malhotra",
+                  "location": "Pune, India",
+                  "image": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=400",
+                  "quote": "Loved the variety in the menu and the quality of ingredients. It's rare to find such consistent taste and hospitality."
+                },
+                {
+                  "id": 6,
+                  "name": "Ritika Sinha",
+                  "location": "Hyderabad, India",
+                  "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400",
+                  "quote": "A wonderful place to dine with friends and family. Great food, beautiful setting and excellent hospitality. Can't wait to come back!"
+                }
+              ]
+            }
+          }
+        },
+        "Team": {
+          "variants": {
+            "NoirTeam1": {
+              "bannerImage": "/c.png",
+              "members": [
+                {
+                  "id": 1,
+                  "name": "Daniel Foster",
+                  "role": "Executive Chef",
+                  "image": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80&w=800",
+                  "bio": "Passionate about modern culinary art with 12+ years across Michelin-star kitchens.",
+                  "isFeatured": false
+                },
+                {
+                  "id": 2,
+                  "name": "Sophia Bennett",
+                  "role": "Head Bartender",
+                  "image": "https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?auto=format&fit=crop&q=80&w=800",
+                  "bio": "Crafting bespoke signature cocktails with botanical infusions and rare spirits.",
+                  "isFeatured": false
+                },
+                {
+                  "id": 3,
+                  "name": "Liam Carter",
+                  "role": "Sous Chef",
+                  "image": "https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&q=80&w=800",
+                  "bio": "Specializes in modern European cuisine with a focus on fresh, seasonal ingredients and artistic presentation.",
+                  "isFeatured": true
+                },
+                {
+                  "id": 4,
+                  "name": "Ethan Walker",
+                  "role": "Mixologist",
+                  "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800",
+                  "bio": "Expert in smoke-infused mixology and artisanal vintage wines.",
+                  "isFeatured": false
+                }
+              ]
+            }
+          }
+        },
+        "Gallery": {
+          "variants": {
+            "NoirGallery1": {
+              "items": [
+                {
+                  "id": 1,
+                  "title": "Signature Pink Cocktail",
+                  "image": "/rm.avif",
+                  "layout": "large-portrait"
+                },
+                {
+                  "id": 2,
+                  "title": "Appetizers Platter",
+                  "image": "/s2.png",
+                  "layout": "standard"
+                },
+                {
+                  "id": 3,
+                  "title": "Seared Fish Garnish",
+                  "image": "/p.jpg",
+                  "layout": "standard"
+                },
+                {
+                  "id": 4,
+                  "title": "Long Dining Hall",
+                  "image": "/s5.avif",
+                  "layout": "wide"
+                },
+                {
+                  "id": 5,
+                  "title": "Meat Gourmet Dish",
+                  "image": "/r.jpg",
+                  "layout": "standard"
+                },
+                {
+                  "id": 6,
+                  "title": "Bartender Cocktail Strainer",
+                  "image": "/g2.avif",
+                  "layout": "standard-bw"
+                },
+                {
+                  "id": 7,
+                  "title": "Martini Glass on Stone",
+                  "image": "/dessert.avif",
+                  "layout": "standard"
+                },
+                {
+                  "id": 8,
+                  "title": "Citrus Meringue Tart",
+                  "image": "/starter.jpg",
+                  "layout": "standard"
+                },
+                {
+                  "id": 9,
+                  "title": "Red Wine Glaze Plated Dish",
+                  "image": "/rm3.avif",
+                  "layout": "half-wide"
+                },
+                {
+                  "id": 10,
+                  "title": "Velvet Green Bar Counter",
+                  "image": "/rm4.webp",
+                  "layout": "half-wide"
+                },
+                {
+                  "id": 11,
+                  "title": "Champagne Toast Celebration",
+                  "image": "/rm5.avif",
+                  "layout": "quarter"
+                },
+                {
+                  "id": 12,
+                  "title": "Champagne Toast Celebration",
+                  "image": "/rm6.jpg",
+                  "layout": "quarter"
+                },
+                {
+                  "id": 13,
+                  "title": "Gourmet Tomato Consomme",
+                  "image": "/rm2.jpg",
+                  "layout": "quarter"
+                },
+                {
+                  "id": 14,
+                  "title": "main",
+                  "image": "/rm3.avif",
+                  "layout": "half-wide"
+                }
+              ]
+            }
+          }
+        },
+        "Blog": {
+          "variants": {
+            "NoirBlog1": {
+              "badge": "OUR BLOG",
+              "title": "LATEST FROM",
+              "titleHighlight": "OUR KITCHEN",
+              "description": "Discover food stories, chef's creations, dining experiences and tips to make every meal special.",
+              "posts": [
+                {
+                  "id": 1,
+                  "slug": "a-la-flamiche",
+                  "title": "À LA FLAMICHE",
+                  "date": "MAR. 10, 2024",
+                  "category": "FOOD & RECIPES",
+                  "description": "Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui elit adipiscing. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet quam sempe.",
+                  "image": "/rm.avif"
+                },
+                {
+                  "id": 2,
+                  "slug": "vin-de-bordeaux",
+                  "title": "VIN DE BORDEAUX",
+                  "date": "MAR. 21, 2024",
+                  "category": "DINING EXPERIENCE",
+                  "description": "Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui elit adipiscing. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet quam sempe.",
+                  "image": "/r.jpg"
+                },
+                {
+                  "id": 3,
+                  "slug": "lobster-recipes",
+                  "title": "LOBSTER RECIPES",
+                  "date": "MAR. 21, 2024",
+                  "category": "SEAFOOD",
+                  "description": "Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui elit adipiscing. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet quam sempe.",
+                  "image": "/s2.png"
+                },
+                {
+                  "id": 4,
+                  "slug": "the-art-of-plating",
+                  "title": "THE ART OF PLATING",
+                  "date": "APR. 05, 2024",
+                  "category": "CHEF'S SPECIAK",
+                  "description": "Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui elit adipiscing. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet quam sempe.",
+                  "image": "/d.png"
+                },
+                {
+                  "id": 5,
+                  "slug": "indulgent-desserts",
+                  "title": "INDULGENT DESSERTS",
+                  "date": "APR. 12, 2024",
+                  "category": "DESSERTS",
+                  "description": "Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui elit adipiscing. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam libero, sit amet quam sempe.",
+                  "image": "/rm4.webp"
+                },
+                {
+                  "id": 6,
+                  "slug": "behind-the-scenes",
+                  "title": "BEHIND THE SCENES",
+                  "date": "APR. 18, 2024",
+                  "category": "RESTAURANT LIFE",
+                  "description": "Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui elit adipiscing. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet quam sempe.",
+                  "image": "/s4.avif"
+                }
+              ]
+            }
+          }
+        },
+        "BlogDetail": {
+          "variants": {
+            "NoirBlogDetail1": {
+              "slug": "authentic-italian-pasta",
+              "date": "APRIL 12, 2024",
+              "category": "FOOD & RECIPES",
+              "titleLine1": "A COMPLETE GUIDE TO",
+              "titleHighlight": "AUTHENTIC ITALIAN PASTA",
+              "heroImage": "/s2.png",
+              "introParagraphs": [
+                "Italian pasta is more than just a dish — it's a celebration of culture, tradition and simple, high-quality ingredients. From the bustling streets of Rome to the coastal towns of Amalfi, every region in Italy has its own unique pasta recipes, passed down through generations.",
+                "In this guide, we'll explore the history of Italian pasta, the most popular types, essential cooking tips, and a delicious homemade recipe you can try at home. Whether you are a beginner or a passionate foodie, this article will help you bring the true taste of Italy to your kitchen."
+              ],
+              "quote": "Good food is the foundation of genuine happiness.",
+              "historySection": {
+                "title": "THE HISTORY OF PASTA",
+                "description": "Pasta has been a part of Italian cuisine for centuries, with origins believed to date back to ancient Rome. Over time, it evolved into hundreds of shapes and styles, each designed to pair perfectly with regional sauces and ingredients. Today, pasta is enjoyed worldwide and remains a symbol of Italian culinary excellence."
+              },
+              "featureCards": [
+                {
+                  "id": 1,
+                  "title": "FRESH INGREDIENTS",
+                  "description": "High-quality ingredients make all the difference in Italian cooking.",
+                  "image": "/pasta.jpg"
+                },
+                {
+                  "id": 2,
+                  "title": "HANDMADE PASTA",
+                  "description": "Traditional techniques bring out authentic flavor and texture.",
+                  "image": "/pasta1.webp"
+                },
+                {
+                  "id": 3,
+                  "title": "DELICIOUS RESULTS",
+                  "description": "A simple recipe can create restaurant-quality pasta at home.",
+                  "image": "/pasta2.jpg"
+                }
+              ],
+              "tipsSection": {
+                "title": "TIPS FOR PERFECT PASTA",
+                "description": "Cooking the perfect pasta is all about a few simple steps: use plenty of salted water, cook until al dente, and always pair with a sauce that complements the pasta type. Fresh ingredients, good olive oil, and a touch of Parmesan can elevate your dish to the next level."
+              }
+            }
+          }
+        },
+        "Contact": {
+          "variants": {
+            "NoirContact1": {
+              "badge": "CONTACT US",
+              "title": "GET IN",
+              "titleHighlight": "TOUCH",
+              "description": "We'd love to hear from you! Whether it's a reservation enquiry, a special request, or just a friendly hello, our team is here to help.",
+              "responseNote": "We usually respond within 24 hours. For reservations, please call us directly.",
+              "image": "/s1.png",
+              "locationSection": {
+                "badge": "HOW TO FIND US",
+                "title": "OUR",
+                "titleHighlight": "LOCATION",
+                "description": "Visit us for an unforgettable dining experience. We're located in the heart of the city, with easy access and a beautiful ambience.",
+                "address": "123 Riverside Avenue, Downtown, New York, NY 10001, USA",
+                "mapEmbedUrl": "https://maps.google.com/maps?q=Riverside%20Avenue%20New%20York&t=&z=14&ie=UTF8&iwloc=&output=embed"
+              }
+            }
+          }
+        },
+        "Reservation": {
+          "variants": {
+            "NoirReservation1": {
+              "badge": "RESERVATION DESK",
+              "title": "RESERVE YOUR",
+              "titleHighlight": "TABLE",
+              "description": "Select your preferred date, timings, and dining lounge to experience culinary excellence crafted just for you.",
+              "guestOptions": ["1", "2", "3", "4", "5", "6+"],
+              "timeSlots": {
+                "lunch": ["12:00 PM", "12:30 PM", "01:00 PM", "01:30 PM", "02:00 PM"],
+                "dinner": ["07:00 PM", "07:30 PM", "08:00 PM", "08:30 PM", "09:00 PM", "09:30 PM"]
+              },
+              "seatingOptions": [
+                { "id": "main", "label": "Main Dining Hall", "desc": "Central ambient chandelier seating" },
+                { "id": "private", "label": "Private Dining Suite", "desc": "Exclusive curtained luxury space" },
+                { "id": "terrace", "label": "Velvet Terrace", "desc": "Open-air scenic rooftop view" }
+              ],
+              "buttonText": "Confirm Table Booking"
+            }
+          }
+        },
+        "Footer": {
+          "variants": {
+            "NoirFooter1": {
+              "brandName": "NOIR",
+              "tagline": "DINING",
+              "address": "Noir Dining Restaurant & Fine Dining, Bordeaux, France",
+              "phone": "+1 000 000 000",
+              "email": "info@xyz.com",
+              "navLinks": [
+                { "title": "HOME", "path": "/" },
+                { "title": "ABOUT US", "path": "/about" },
+                { "title": "MENU", "path": "/menu" },
+                { "title": "RESERVATION", "path": "/reservation" },
+                { "title": "CONTACT US", "path": "/contact" }
+              ],
+              "socials": [
+                { "name": "FACEBOOK", "url": "https://facebook.com" },
+                { "name": "INSTAGRAM", "url": "https://instagram.com" },
+                { "name": "TWITTER", "url": "https://twitter.com" },
+                { "name": "LINKEDIN", "url": "https://linkedin.com" },
+                { "name": "YOUTUBE", "url": "https://youtube.com" }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
