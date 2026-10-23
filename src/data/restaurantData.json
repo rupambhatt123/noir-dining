@@ -108,7 +108,32 @@
               "logoImage": "/logo.png",
               "logoText": "NOIR",
               "tagline": "DINING",
-              "backgroundImage": "/hero.png",
+              "backgroundImage": "/hero.webp",
+              "backgroundImages": [
+                "/hero.webp",
+                "/s2.webp",
+                "/dessert.webp"
+              ],
+              "slides": [
+                {
+                  "id": 1,
+                  "badge": "SWEET INDULGENCE",
+                  "title": "EXQUISITE TASTE",
+                  "image": "/hero.webp"
+                },
+                {
+                  "id": 2,
+                  "badge": "FINE DINING EXPERIENCE",
+                  "title": "CULINARY MASTERY",
+                  "image": "/s2.webp"
+                },
+                {
+                  "id": 3,
+                  "badge": "MODERN FLAVOURS",
+                  "title": "ARTISANAL CUISINE",
+                  "image": "/dessert.webp"
+                }
+              ],
               "ctaButton": {
                 "text": "BOOK A TABLE",
                 "path": "/reservation"
@@ -119,7 +144,7 @@
         "PageBanner": {
           "variants": {
             "NoirPageBanner1": {
-              "backgroundImage": "/p.jpg"
+              "backgroundImage": "/p.webp"
             }
           }
         },
@@ -133,8 +158,8 @@
               "description": "We see our customers as invited guests to a party, and we are the hosts. It's our job every day to make every important aspect of the customer experience a little bit better.",
               "ctaText": "DISCOVER MORE",
               "ctaLink": "/about",
-              "imagePrimary": "/s2.png",
-              "imageSecondary": "/s1.png"
+              "imagePrimary": "/s2.webp",
+              "imageSecondary": "/s1.webp"
             }
           }
         },
@@ -145,7 +170,7 @@
               "title": "Passion in",
               "titleHighlight": "Every Plate",
               "description": "Our chefs combine traditional techniques with modern flavours to create dishes that are both authentic and innovative. Each plate is a work of art, crafted with care and attention to detail.",
-              "image": "/s4.avif",
+              "image": "/s4.webp",
               "counters": [
                 { "id": 1, "value": "10+", "label": "Years of Excellence" },
                 { "id": 2, "value": "50+", "label": "Signature Dishes" },
@@ -161,8 +186,8 @@
               "title": "OUR FOOD",
               "titleHighlight": "PHILOSOPHY",
               "description": "Simple and balanced. At Noir Dining, we bring together flavours and specialties from Italy and beyond to create our own culinary world, full of surprising artistry.",
-              "imagePrimary": "/r.jpg",
-              "imageSecondary": "/s2.png"
+              "imagePrimary": "/r.webp",
+              "imageSecondary": "/s2.webp"
             }
           }
         },
@@ -172,7 +197,7 @@
               "badge": "OUR AMBIENCE",
               "title": "A Perfect Setting for Every Occasion",
               "description": "Step into a warm and elegant space designed to make your dining experience truly special. Whether it's a romantic dinner, a family gathering, or a celebration, our ambience sets the perfect mood.",
-              "image": "/s5.avif"
+              "image": "/s5.webp"
             }
           }
         },
@@ -186,7 +211,7 @@
                   "titlePart1": "STAR",
                   "titlePart2": "TERS",
                   "iconType": "cutlery",
-                  "image": "/starter.jpg",
+                  "image": "/starter.webp",
                   "items": [
                     { "name": "Purple Corn Tostada", "price": "$36", "desc": "Ricotta, goat cheese, beetroot and datterini." },
                     { "name": "Bruno's Scribble", "price": "$30", "desc": "Culatello, Spalla Cotta, Mortadella, Culacciona." },
@@ -204,7 +229,7 @@
                   "titlePart1": "MAIN ",
                   "titlePart2": "COURSES",
                   "iconType": "leaf",
-                  "image": "/s2.png",
+                  "image": "/s2.webp",
                   "items": [
                     { "name": "Crispy Skin Chicken", "price": "$33", "desc": "Ricotta, radicchio, prosciutto salad, cabernet." },
                     { "name": "Grilled Barramundi", "price": "$39", "desc": "Potato, Rocket, Garnished with Picked Ginger." },
@@ -224,7 +249,7 @@
                   "titlePart1": "DESS",
                   "titlePart2": "ERTS",
                   "iconType": "fleur",
-                  "image": "/dessert.avif",
+                  "image": "/dessert.webp",
                   "items": [
                     { "name": "Home-made Citrus Tart", "price": "$15", "desc": "Served with vanilla gelato." },
                     { "name": "Apple & Blueberry Crumble", "price": "$16", "desc": "Served with vanilla gelato & blueberry compote." },
@@ -249,14 +274,14 @@
                   "quote": "The food, ambience and service were exceptional. Every dish was perfectly prepared and full of flavour. It truly made our special occasion even more memorable.",
                   "name": "DANIEL SAMSON",
                   "role": "Sous-Chef",
-                  "avatar": "https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&q=80&w=300"
+                  "avatar": "t4.jpg"
                 },
                 {
                   "id": 2,
                   "quote": "An extraordinary culinary voyage. The wine pairings and attentiveness of the team made our anniversary evening unforgettable.",
                   "name": "CLAIRE DE ROCHE",
                   "role": "Food & Wine Critic",
-                  "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300"
+                  "avatar": "/t5.jpg"
                 }
               ]
             }
@@ -274,42 +299,42 @@
                   "id": 1,
                   "name": "Priya Sharma",
                   "location": "New Delhi, India",
-                  "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400",
+                  "image": "/t1.jpg",
                   "quote": "Amazing food, beautiful ambience and excellent service! Every dish was full of authentic flavours. Highly recommended!"
                 },
                 {
                   "id": 2,
                   "name": "Rahul Mehta",
                   "location": "Mumbai, India",
-                  "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
+                  "image": "/t2.webp",
                   "quote": "One of the best dining experiences I've had. The food was outstanding and the staff was very attentive. Will definitely visit again!"
                 },
                 {
                   "id": 3,
                   "name": "Sneha Kapoor",
                   "location": "Bengaluru, India",
-                  "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400",
+                  "image": "/t3.jpg",
                   "quote": "The atmosphere is so warm and welcoming. Loved the presentation and taste of every dish. A perfect place for family dinners."
                 },
                 {
                   "id": 4,
                   "name": "Amit Singh",
                   "location": "Chandigarh, India",
-                  "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400",
+                  "image": "/t6.avif",
                   "quote": "Exceptional service and delicious food. The attention to detail in every dish is impressive. Truly a memorable dining experience."
                 },
                 {
                   "id": 5,
                   "name": "Karan Malhotra",
                   "location": "Pune, India",
-                  "image": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=400",
+                  "image": "/t5.jpg",
                   "quote": "Loved the variety in the menu and the quality of ingredients. It's rare to find such consistent taste and hospitality."
                 },
                 {
                   "id": 6,
                   "name": "Ritika Sinha",
                   "location": "Hyderabad, India",
-                  "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400",
+                  "image": "/t4.jpg",
                   "quote": "A wonderful place to dine with friends and family. Great food, beautiful setting and excellent hospitality. Can't wait to come back!"
                 }
               ]
@@ -319,13 +344,13 @@
         "Team": {
           "variants": {
             "NoirTeam1": {
-              "bannerImage": "/c.png",
+              "bannerImage": "/c.webp",
               "members": [
                 {
                   "id": 1,
                   "name": "Daniel Foster",
                   "role": "Executive Chef",
-                  "image": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80&w=800",
+                  "image": "/s4.webp",
                   "bio": "Passionate about modern culinary art with 12+ years across Michelin-star kitchens.",
                   "isFeatured": false
                 },
@@ -333,7 +358,7 @@
                   "id": 2,
                   "name": "Sophia Bennett",
                   "role": "Head Bartender",
-                  "image": "https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?auto=format&fit=crop&q=80&w=800",
+                  "image": "/t4.jpg",
                   "bio": "Crafting bespoke signature cocktails with botanical infusions and rare spirits.",
                   "isFeatured": false
                 },
@@ -341,7 +366,7 @@
                   "id": 3,
                   "name": "Liam Carter",
                   "role": "Sous Chef",
-                  "image": "https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&q=80&w=800",
+                  "image": "/c.webp",
                   "bio": "Specializes in modern European cuisine with a focus on fresh, seasonal ingredients and artistic presentation.",
                   "isFeatured": true
                 },
@@ -349,7 +374,7 @@
                   "id": 4,
                   "name": "Ethan Walker",
                   "role": "Mixologist",
-                  "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800",
+                  "image": "/t5.jpg",
                   "bio": "Expert in smoke-infused mixology and artisanal vintage wines.",
                   "isFeatured": false
                 }
@@ -364,55 +389,55 @@
                 {
                   "id": 1,
                   "title": "Signature Pink Cocktail",
-                  "image": "/rm.avif",
+                  "image": "/rm.webp",
                   "layout": "large-portrait"
                 },
                 {
                   "id": 2,
                   "title": "Appetizers Platter",
-                  "image": "/s2.png",
+                  "image": "/s2.webp",
                   "layout": "standard"
                 },
                 {
                   "id": 3,
                   "title": "Seared Fish Garnish",
-                  "image": "/p.jpg",
+                  "image": "/p.webp",
                   "layout": "standard"
                 },
                 {
                   "id": 4,
                   "title": "Long Dining Hall",
-                  "image": "/s5.avif",
+                  "image": "/s5.webp",
                   "layout": "wide"
                 },
                 {
                   "id": 5,
                   "title": "Meat Gourmet Dish",
-                  "image": "/r.jpg",
+                  "image": "/r.webp",
                   "layout": "standard"
                 },
                 {
                   "id": 6,
                   "title": "Bartender Cocktail Strainer",
-                  "image": "/g2.avif",
+                  "image": "/g2.webp",
                   "layout": "standard-bw"
                 },
                 {
                   "id": 7,
                   "title": "Martini Glass on Stone",
-                  "image": "/dessert.avif",
+                  "image": "/dessert.webp",
                   "layout": "standard"
                 },
                 {
                   "id": 8,
                   "title": "Citrus Meringue Tart",
-                  "image": "/starter.jpg",
+                  "image": "/starter.webp",
                   "layout": "standard"
                 },
                 {
                   "id": 9,
                   "title": "Red Wine Glaze Plated Dish",
-                  "image": "/rm3.avif",
+                  "image": "/rm3.webp",
                   "layout": "half-wide"
                 },
                 {
@@ -424,27 +449,28 @@
                 {
                   "id": 11,
                   "title": "Champagne Toast Celebration",
-                  "image": "/rm5.avif",
+                  "image": "/rm5.webp",
                   "layout": "quarter"
                 },
                 {
                   "id": 12,
                   "title": "Champagne Toast Celebration",
-                  "image": "/rm6.jpg",
+                  "image": "/rm6.webp",
                   "layout": "quarter"
                 },
                 {
-                  "id": 13,
-                  "title": "Gourmet Tomato Consomme",
-                  "image": "/rm2.jpg",
-                  "layout": "quarter"
-                },
-                {
-                  "id": 14,
-                  "title": "main",
-                  "image": "/rm3.avif",
-                  "layout": "half-wide"
-                }
+          "id": 13,
+          "title": "Decadent Sweet Indulgence",
+          "image": "/dessert.webp",
+          "layout": "quarter"
+        },
+        {
+          "id": 14,
+          "title": "Culinary Masterpiece",
+          "image": "/starter.webp",
+          "layout": "quarter"
+        }
+                
               ]
             }
           }
@@ -464,7 +490,7 @@
                   "date": "MAR. 10, 2024",
                   "category": "FOOD & RECIPES",
                   "description": "Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui elit adipiscing. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet quam sempe.",
-                  "image": "/rm.avif"
+                  "image": "/rm.webp"
                 },
                 {
                   "id": 2,
@@ -473,7 +499,7 @@
                   "date": "MAR. 21, 2024",
                   "category": "DINING EXPERIENCE",
                   "description": "Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui elit adipiscing. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet quam sempe.",
-                  "image": "/r.jpg"
+                  "image": "/r.webp"
                 },
                 {
                   "id": 3,
@@ -482,7 +508,7 @@
                   "date": "MAR. 21, 2024",
                   "category": "SEAFOOD",
                   "description": "Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui elit adipiscing. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet quam sempe.",
-                  "image": "/s2.png"
+                  "image": "/s2.webp"
                 },
                 {
                   "id": 4,
@@ -491,7 +517,7 @@
                   "date": "APR. 05, 2024",
                   "category": "CHEF'S SPECIAK",
                   "description": "Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui elit adipiscing. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet quam sempe.",
-                  "image": "/d.png"
+                  "image": "/d.webp"
                 },
                 {
                   "id": 5,
@@ -509,7 +535,7 @@
                   "date": "APR. 18, 2024",
                   "category": "RESTAURANT LIFE",
                   "description": "Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui elit adipiscing. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet quam sempe.",
-                  "image": "/s4.avif"
+                  "image": "/s4.webp"
                 }
               ]
             }
@@ -523,7 +549,7 @@
               "category": "FOOD & RECIPES",
               "titleLine1": "A COMPLETE GUIDE TO",
               "titleHighlight": "AUTHENTIC ITALIAN PASTA",
-              "heroImage": "/s2.png",
+              "heroImage": "/s2.webp",
               "introParagraphs": [
                 "Italian pasta is more than just a dish — it's a celebration of culture, tradition and simple, high-quality ingredients. From the bustling streets of Rome to the coastal towns of Amalfi, every region in Italy has its own unique pasta recipes, passed down through generations.",
                 "In this guide, we'll explore the history of Italian pasta, the most popular types, essential cooking tips, and a delicious homemade recipe you can try at home. Whether you are a beginner or a passionate foodie, this article will help you bring the true taste of Italy to your kitchen."
@@ -538,7 +564,7 @@
                   "id": 1,
                   "title": "FRESH INGREDIENTS",
                   "description": "High-quality ingredients make all the difference in Italian cooking.",
-                  "image": "/pasta.jpg"
+                  "image": "/pasta.webp"
                 },
                 {
                   "id": 2,
@@ -550,7 +576,7 @@
                   "id": 3,
                   "title": "DELICIOUS RESULTS",
                   "description": "A simple recipe can create restaurant-quality pasta at home.",
-                  "image": "/pasta2.jpg"
+                  "image": "/pasta2.webp"
                 }
               ],
               "tipsSection": {
@@ -568,7 +594,7 @@
               "titleHighlight": "TOUCH",
               "description": "We'd love to hear from you! Whether it's a reservation enquiry, a special request, or just a friendly hello, our team is here to help.",
               "responseNote": "We usually respond within 24 hours. For reservations, please call us directly.",
-              "image": "/s1.png",
+              "image": "/s1.webp",
               "locationSection": {
                 "badge": "HOW TO FIND US",
                 "title": "OUR",

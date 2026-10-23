@@ -1,3 +1,4 @@
+// src/app/about/page.tsx
 import React from "react";
 import Image from "next/image";
 import PageBanner from "@/components/PageBanner";
@@ -31,7 +32,7 @@ export default function AboutPage() {
 
       <div className="relative z-10">
         <PageBanner title="ABOUT US" breadcrumbs={[{ label: "About Us" }]} />
-        <StorySection />
+        <StorySection hideCta={true} />
 
         {/* Philosophy Section */}
         <section className="bg-transparent py-28 px-6 md:px-12 overflow-hidden relative">

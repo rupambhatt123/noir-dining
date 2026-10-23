@@ -1,11 +1,18 @@
+// src/components/StorySection.tsx
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { getAboutData } from "@/data/getSiteData";
 
-export default function StorySection() {
+export default function StorySection({ hideCta = false }: { hideCta?: boolean }) {
   const about = getAboutData();
+  const pathname = usePathname();
+
+  // About page par ya hideCta true hone par button nahi dikhega
+  const shouldHideButton = hideCta || pathname === "/about";
 
   return (
     <section className="bg-[#FAF7F2] text-[#1B1B1B] pt-8 sm:pt-12 lg:pt-16 pb-6 lg:pb-8 px-4 sm:px-8 md:px-12 lg:px-16 select-none">
@@ -33,20 +40,22 @@ export default function StorySection() {
                 "We see our customers as invited guests to a party, and we are the hosts. It's our job every day to make every important aspect of the customer experience a little bit better."}
             </p>
 
-            <div className="pt-1.5 sm:pt-2">
-              <Link
-                href={about?.ctaLink || "/about"}
-                className="inline-flex items-center gap-3 bg-[#9E6C38] hover:bg-[#86592B] text-white text-[10px] sm:text-[11px] font-bold tracking-[0.18em] uppercase px-5 sm:px-6 py-2.5 sm:py-3 transition-all duration-300 shadow-sm"
-              >
-                <span>{about?.ctaText || "DISCOVER MORE"}</span>
-                <div className="w-4 h-4 rounded-full border border-white/90 flex items-center justify-center">
-                  <ArrowRight className="w-2.5 h-2.5 text-white stroke-[2.2]" />
-                </div>
-              </Link>
-            </div>
+            {!shouldHideButton && (
+              <div className="pt-1.5 sm:pt-2">
+                <Link
+                  href={about?.ctaLink || "/about"}
+                  className="inline-flex items-center gap-3 bg-[#9E6C38] hover:bg-[#86592B] text-white text-[10px] sm:text-[11px] font-bold tracking-[0.18em] uppercase px-5 sm:px-6 py-2.5 sm:py-3 transition-all duration-300 shadow-sm"
+                >
+                  <span>{about?.ctaText || "DISCOVER MORE"}</span>
+                  <div className="w-4 h-4 rounded-full border border-white/90 flex items-center justify-center">
+                    <ArrowRight className="w-2.5 h-2.5 text-white stroke-[2.2]" />
+                  </div>
+                </Link>
+              </div>
+            )}
           </div>
 
-          {/* Bottom Left Image: Mobile par compact (220px) aur Desktop par normal */}
+          {/* Bottom Left Image */}
           <div className="relative w-full h-[220px] sm:h-[320px] lg:h-[340px] overflow-hidden mt-3 sm:mt-2 rounded-sm shadow-sm">
             <Image
               src={about?.imagePrimary || "/s2.png"}
@@ -59,7 +68,7 @@ export default function StorySection() {
           </div>
         </div>
 
-        {/* Right Column: Mobile par balanced height (260px) and Desktop par full stretch */}
+        {/* Right Column */}
         <div className="lg:col-span-5 relative w-full h-[260px] sm:h-[380px] lg:h-auto lg:min-h-[640px] overflow-hidden rounded-sm shadow-sm">
           <Image
             src={about?.imageSecondary || "/s1.png"}

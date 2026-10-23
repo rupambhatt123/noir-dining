@@ -5,38 +5,35 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import NavigationDrawer from "@/components/NavigationDrawer";
-import { getHeroData } from "@/data/getSiteData";
+import siteData from "@/data/restaurantData.json";
 
 export default function HeroSection() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const hero = getHeroData();
 
-  const defaultSlides = [
-    {
-      image: "/hero.png",
-      subtitle: "FINE DINING RESTAURANT",
-      title: "SAVORY FLAVOR DISHES",
-    },
-    {
-      image: "/s2.png",
-      subtitle: "CULINARY EXCELLENCE",
-      title: "ARTISANAL MASTERPIECES",
-    },
-    {
-      image: "/dessert.avif",
-      subtitle: "SWEET INDULGENCE",
-      title: "EXQUISITE TASTE",
-    },
-  ];
+  // 100% Direct Data Binding from restaurantData.json
+  const bannerData =
+    (siteData as any)?.categories?.Restaurant?.sections?.Banner?.variants?.NoirBanner1;
 
-  const heroSlides = (hero as any)?.slides;
+  // JSON slides ya backgroundImages array mapping
   const slides =
-    Array.isArray(heroSlides) && heroSlides.length > 0
-      ? heroSlides
-      : defaultSlides;
+    Array.isArray(bannerData?.slides) && bannerData.slides.length > 0
+      ? bannerData.slides
+      : Array.isArray(bannerData?.backgroundImages) && bannerData.backgroundImages.length > 0
+      ? bannerData.backgroundImages.map((img: string, idx: number) => ({
+          image: img,
+          badge: idx === 0 ? "SWEET INDULGENCE" : idx === 1 ? "FINE DINING RESTAURANT" : "CULINARY EXCELLENCE",
+          title: idx === 0 ? "EXQUISITE TASTE" : idx === 1 ? "SAVORY FLAVOR DISHES" : "ARTISANAL MASTERPIECES"
+        }))
+      : [
+          {
+            image: bannerData?.backgroundImage || "/hero.webp",
+            badge: "SWEET INDULGENCE",
+            title: "EXQUISITE TASTE"
+          }
+        ];
 
-  // Faster auto-slide transition
+  // Auto-slide transition
   useEffect(() => {
     if (slides.length <= 1) return;
     const timer = setInterval(() => {
@@ -53,14 +50,17 @@ export default function HeroSection() {
         onClose={() => setDrawerOpen(false)}
       />
 
-      {/* Responsive Section Height: Mobile par compact (h-[75vh] min-h-[500px]), Desktop par original intact */}
+      {/* Hero Section Container */}
       <section
         id="hero"
         className="relative w-full h-[75vh] sm:h-[94vh] min-h-[500px] sm:min-h-[700px] max-h-[920px] flex flex-col justify-between overflow-hidden bg-[#0A0A0A] select-none"
       >
+        {/* Slides Images from JSON */}
         <div className="absolute inset-0 z-0">
           {slides.map((slide: any, index: number) => {
             const isActive = index === currentSlide;
+            const slideImg = slide?.image || slide;
+
             return (
               <div
                 key={index}
@@ -74,8 +74,8 @@ export default function HeroSection() {
                   }`}
                 >
                   <Image
-                    src={slide.image}
-                    alt={slide.title || "Hero Slide"}
+                    src={slideImg}
+                    alt={slide?.title || "Noir Dining Hero Slide"}
                     fill
                     priority={index === 0}
                     unoptimized
@@ -89,7 +89,7 @@ export default function HeroSection() {
           })}
         </div>
 
-        {/* Header: Mobile par padding aur spacing properly balanced */}
+        {/* Top Header Bar */}
         <header className="w-full max-w-7xl mx-auto px-4 sm:px-10 lg:px-14 py-4 sm:py-8 flex items-center justify-between z-30 relative">
           <button
             onClick={() => setDrawerOpen(true)}
@@ -101,13 +101,13 @@ export default function HeroSection() {
             <span className="w-6 sm:w-8 h-[2.5px] bg-[#C5A059] group-hover:bg-[#DEB887] transition-all duration-300" />
           </button>
 
-          {/* Logo: Mobile par overlap na kare isliye width/height scaled down */}
+          {/* Logo from JSON */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none z-10">
             <Link href="/" className="pointer-events-auto block">
               <div className="relative w-28 sm:w-52 md:w-56 h-12 sm:h-20 md:h-24 transition-transform duration-300 hover:scale-[1.02]">
                 <Image
-                  src={(hero as any)?.logoImage || "/logo.png"}
-                  alt={(hero as any)?.logoText || "Noir Dining"}
+                  src={bannerData?.logoImage || "/logo.png"}
+                  alt={bannerData?.logoText || "Noir Dining"}
                   fill
                   priority
                   unoptimized
@@ -117,13 +117,15 @@ export default function HeroSection() {
             </Link>
           </div>
 
-          {/* Book A Table CTA Button: Mobile par compact fit */}
+          {/* Book A Table CTA Button from JSON */}
           <Link
-            href={(hero as any)?.ctaButton?.path || "/reservation"}
+            href={bannerData?.ctaButton?.path || "/reservation"}
             className="group flex items-center gap-1.5 sm:gap-3 bg-[#C5A059] hover:bg-[#DEB887] text-black font-semibold tracking-wider uppercase pl-3 sm:pl-6 pr-1.5 sm:pr-2.5 py-1.5 sm:py-2.5 rounded-full transition-all duration-300 shadow-xl z-20 shrink-0"
           >
             <span className="font-sans font-bold text-[10px] sm:text-xs">
-              <span className="hidden sm:inline">{(hero as any)?.ctaButton?.text || "BOOK A TABLE"}</span>
+              <span className="hidden sm:inline">
+                {bannerData?.ctaButton?.text || "BOOK A TABLE"}
+              </span>
               <span className="inline sm:hidden">BOOK</span>
             </span>
             <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-black text-[#C5A059] flex items-center justify-center transition-transform group-hover:translate-x-0.5">
@@ -132,7 +134,7 @@ export default function HeroSection() {
           </Link>
         </header>
 
-        {/* Center Hero Titles */}
+        {/* Center Hero Titles from JSON */}
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center my-auto pb-6 sm:pb-10">
           {slides.map((slide: any, idx: number) => {
             const isActive = idx === currentSlide;
@@ -146,13 +148,13 @@ export default function HeroSection() {
                 <div className="flex items-center justify-center gap-2.5 sm:gap-4 mb-2 sm:mb-3">
                   <span className="w-6 sm:w-16 h-[1.5px] bg-[#C5A059]" />
                   <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-[#C5A059] font-medium font-sans">
-                    {slide.subtitle}
+                    {slide?.badge || slide?.subtitle || "SWEET INDULGENCE"}
                   </span>
                   <span className="w-6 sm:w-16 h-[1.5px] bg-[#C5A059]" />
                 </div>
 
                 <h1 className="font-serif text-3xl sm:text-6xl md:text-7xl lg:text-8xl text-white font-normal tracking-wide leading-tight sm:leading-tight mb-2 sm:mb-4 drop-shadow-md">
-                  {slide.title}
+                  {slide?.title || "EXQUISITE TASTE"}
                 </h1>
               </div>
             );
