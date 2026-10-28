@@ -1,13 +1,10 @@
-// src/app/reservation/page.tsx
 "use client";
 import React, { useState } from "react";
 import PageBanner from "@/components/PageBanner";
-import Footer from "@/components/Footer";
 import siteData from "@/data/restaurantData.json";
 import { Calendar as CalendarIcon, Clock, Users, Utensils, CheckCircle2 } from "lucide-react";
 
 export default function ReservationPage() {
-  // 100% Dynamic Data connected from restaurantData.json
   const reservationData =
     siteData?.categories?.Restaurant?.sections?.Reservation?.variants?.NoirReservation1;
 
@@ -45,7 +42,6 @@ export default function ReservationPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#F6EEDD] via-[#FAF5EB] to-[#EFE3C8] text-neutral-900 relative select-none">
-      {/* Background Luxury Ambient Glows */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute top-[12%] -left-28 w-[650px] h-[650px] rounded-full bg-gradient-to-br from-[#D4AF37]/30 via-[#C5A059]/20 to-transparent blur-[120px]" />
         <div className="absolute top-[48%] -right-28 w-[700px] h-[700px] rounded-full bg-gradient-to-bl from-[#C5A059]/30 via-[#DEB887]/20 to-transparent blur-[130px]" />
@@ -64,7 +60,6 @@ export default function ReservationPage() {
         <PageBanner title="BOOK A TABLE" breadcrumbs={[{ label: "Reservation" }]} />
 
         <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 py-20 sm:py-28">
-          {/* Header connected from JSON */}
           <div className="flex flex-col items-center text-center mb-14 sm:mb-18">
             <div className="flex items-center gap-4 text-[#C5A059] mb-3">
               <span className="w-12 sm:w-20 h-[1.5px] bg-[#C5A059]/70" />
@@ -86,7 +81,6 @@ export default function ReservationPage() {
             </p>
           </div>
 
-          {/* Booking Form or Success State */}
           {isSubmitted ? (
             <div className="bg-white/90 backdrop-blur-md max-w-2xl mx-auto rounded-3xl p-10 sm:p-14 border border-[#C5A059]/40 shadow-[0_20px_50px_rgba(197,160,89,0.25)] text-center animate-fadeIn">
               <div className="w-16 h-16 rounded-full bg-[#C5A059]/15 flex items-center justify-center mx-auto mb-6 text-[#A68032]">
@@ -117,7 +111,6 @@ export default function ReservationPage() {
               className="bg-white/85 backdrop-blur-md rounded-3xl p-8 sm:p-12 lg:p-14 border border-[#C5A059]/40 shadow-[0_20px_50px_rgba(197,160,89,0.2)]"
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
-                {/* Left Column: Date & Time Picker */}
                 <div className="space-y-8">
                   <div>
                     <label className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#9A7432] font-semibold mb-3">
@@ -133,7 +126,6 @@ export default function ReservationPage() {
                     />
                   </div>
 
-                  {/* Guests Selection (From JSON) */}
                   <div>
                     <label className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#9A7432] font-semibold mb-3">
                       <Users className="w-4 h-4 text-[#C5A059]" />
@@ -157,7 +149,6 @@ export default function ReservationPage() {
                     </div>
                   </div>
 
-                  {/* Lunch Slots (From JSON) */}
                   <div>
                     <label className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#9A7432] font-semibold mb-3">
                       <Clock className="w-4 h-4 text-[#C5A059]" />
@@ -181,7 +172,6 @@ export default function ReservationPage() {
                     </div>
                   </div>
 
-                  {/* Dinner Slots (From JSON) */}
                   <div>
                     <label className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#9A7432] font-semibold mb-3">
                       <Clock className="w-4 h-4 text-[#C5A059]" />
@@ -206,9 +196,7 @@ export default function ReservationPage() {
                   </div>
                 </div>
 
-                {/* Right Column: Seating Preference & Guest Contact */}
                 <div className="space-y-6">
-                  {/* Seating Preference (From JSON) */}
                   <div>
                     <label className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#9A7432] font-semibold mb-3">
                       <Utensils className="w-4 h-4 text-[#C5A059]" />
@@ -249,7 +237,6 @@ export default function ReservationPage() {
                     </div>
                   </div>
 
-                  {/* Personal Contact Inputs */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1.5">
@@ -317,8 +304,6 @@ export default function ReservationPage() {
             </form>
           )}
         </div>
-
-        <Footer />
       </div>
     </main>
   );

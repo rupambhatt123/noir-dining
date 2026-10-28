@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Clock, ArrowRight, MapPin, CheckCircle2, RotateCcw } from "lucide-react";
 import PageBanner from "@/components/PageBanner";
-import Footer from "@/components/Footer";
 import { getContactData } from "@/data/getSiteData";
 
 export default function ContactPage() {
@@ -35,11 +34,8 @@ export default function ContactPage() {
     <main className="min-h-screen bg-white select-none">
       <PageBanner title="CONTACT US" breadcrumbs={[{ label: "Contact Us" }]} />
 
-      {/* Main Form & Image Section - Standardized spacing to match other pages */}
       <section className="py-10 sm:py-20 md:py-24 px-4 sm:px-8 md:px-12 max-w-7xl mx-auto border-b border-[#E8DFD1]/50">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-          
-          {/* Left Column: Form / Thank you block */}
           <div className="flex flex-col w-full max-w-xl order-1">
             <div className="flex items-center gap-2.5 sm:gap-3 mb-2 sm:mb-3">
               <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#9A7432] font-semibold">
@@ -63,7 +59,6 @@ export default function ContactPage() {
               <span>{contact?.responseNote}</span>
             </div>
 
-            {/* Form & Thank You View State */}
             {isSubmitted ? (
               <div className="bg-[#FAF7F2] p-6 sm:p-10 rounded-xl sm:rounded-2xl border border-[#C5A059]/40 shadow-[0_12px_30px_rgba(197,160,89,0.18)] text-center animate-fadeIn">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#C5A059]/15 flex items-center justify-center mx-auto mb-3.5 sm:mb-5 text-[#A68032]">
@@ -156,7 +151,6 @@ export default function ContactPage() {
             )}
           </div>
 
-          {/* Right Column: Contact Image */}
           <div className="relative w-full h-[320px] xs:h-[380px] sm:h-[480px] lg:h-[580px] rounded-sm overflow-hidden shadow-lg order-2">
             <Image
               src={contact?.image || "/contact.png"}
@@ -170,7 +164,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map & Location Details Section */}
       <section className="py-10 sm:py-20 md:py-24 px-4 sm:px-8 md:px-12 max-w-7xl mx-auto">
         <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
           <div className="flex items-center gap-2.5 sm:gap-3 mb-2 sm:mb-3">
@@ -198,7 +191,6 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Google Maps Embed */}
         <div className="w-full h-[280px] sm:h-[400px] lg:h-[460px] rounded-sm overflow-hidden border border-[#E8DFD1] shadow-md relative bg-neutral-200">
           <iframe
             title="Restaurant Location Map"
@@ -212,8 +204,6 @@ export default function ContactPage() {
           />
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

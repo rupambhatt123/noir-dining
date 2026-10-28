@@ -1,9 +1,7 @@
-// src/app/team/page.tsx
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
 import PageBanner from "@/components/PageBanner";
-import Footer from "@/components/Footer";
 import { getTeamData } from "@/data/getSiteData";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -72,7 +70,6 @@ export default function TeamPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#F6EEDD] via-[#FAF5EB] to-[#EFE3C8] text-neutral-900 relative">
-      {/* 1. Ambient Luxury Golden Background Glows */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute top-[18%] -left-28 w-[620px] h-[620px] rounded-full bg-gradient-to-br from-[#D4AF37]/28 via-[#C5A059]/18 to-transparent blur-[120px]" />
         <div className="absolute top-[52%] -right-28 w-[680px] h-[680px] rounded-full bg-gradient-to-bl from-[#C5A059]/25 via-[#DEB887]/18 to-transparent blur-[130px]" />
@@ -90,10 +87,8 @@ export default function TeamPage() {
       <div className="relative z-10">
         <PageBanner title="OUR CHEFS" breadcrumbs={[{ label: "Our Chefs" }]} />
 
-        {/* 2. Team Section */}
         <section className="pt-4 sm:pt-6 pb-16 sm:pb-24 px-6 sm:px-10 lg:px-14">
           <div className="max-w-7xl mx-auto">
-            {/* Header */}
             <div className="flex flex-col items-center text-center mb-10 sm:mb-14">
               <div className="flex items-center gap-3 sm:gap-4 text-[#C5A059] mb-2 sm:mb-3">
                 <span className="w-10 sm:w-16 h-[1px] bg-[#C5A059]/70" />
@@ -116,7 +111,6 @@ export default function TeamPage() {
               </p>
             </div>
 
-            {/* 3. MOBILE VIEW */}
             <div className="block sm:hidden relative px-2">
               <div className="relative w-full max-w-[340px] mx-auto min-h-[480px]">
                 {members.map((member: any, idx: number) => {
@@ -166,7 +160,6 @@ export default function TeamPage() {
                 })}
               </div>
 
-              {/* Mobile Arrows & Dots Controller */}
               <div className="flex items-center justify-center gap-4 mt-8">
                 <button
                   onClick={prevMobile}
@@ -199,7 +192,6 @@ export default function TeamPage() {
               </div>
             </div>
 
-            {/* 4. DESKTOP & TABLET VIEW: Non-clickable Static Clean Cards */}
             <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-stretch">
               {members.map((member: any, index: number) => {
                 return (
@@ -249,8 +241,6 @@ export default function TeamPage() {
             </div>
           </div>
         </section>
-
-        <Footer />
       </div>
     </main>
   );

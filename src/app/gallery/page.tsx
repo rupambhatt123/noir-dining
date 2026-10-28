@@ -1,10 +1,8 @@
-// src/app/gallery/page.tsx
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import PageBanner from "@/components/PageBanner";
-import Footer from "@/components/Footer";
 import siteData from "@/data/restaurantData.json";
 
 export default function GalleryPage() {
@@ -15,7 +13,6 @@ export default function GalleryPage() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [selectedImage, setSelectedImage] = useState<any | null>(null);
 
-  // Pagination State for Desktop Grid (8 items per page)
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
   const totalPages = Math.ceil(items.length / itemsPerPage);
@@ -52,7 +49,6 @@ export default function GalleryPage() {
       <PageBanner title="OUR GALLERY" breadcrumbs={[{ label: "Our Gallery" }]} />
 
       <section className="py-10 sm:py-20 md:py-24 px-4 sm:px-8 max-w-[1400px] mx-auto">
-        {/* MOBILE VIEW */}
         <div className="block md:hidden">
           <div 
             onClick={() => setSelectedImage(currentPhoto)}
@@ -119,7 +115,6 @@ export default function GalleryPage() {
           </div>
         </div>
 
-        {/* DESKTOP VIEW */}
         <div className="hidden md:block">
           <div className="grid md:grid-cols-12 gap-4 sm:gap-6 auto-rows-fr">
             {currentDesktopItems.map((item: any, index: number) => {
@@ -151,7 +146,6 @@ export default function GalleryPage() {
             })}
           </div>
 
-          {/* Pagination Controls */}
           {totalPages > 1 && (
             <div className="flex items-center justify-center gap-3 mt-12">
               <button
@@ -193,7 +187,6 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Lightbox / Larger View Modal */}
       {selectedImage && (
         <div 
           onClick={() => setSelectedImage(null)}
@@ -229,8 +222,6 @@ export default function GalleryPage() {
           </div>
         </div>
       )}
-
-      <Footer />
     </main>
   );
 }

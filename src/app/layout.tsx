@@ -1,7 +1,7 @@
-// src/app/layout.tsx
 import "./globals.css";
 import LuxuryBackground from "@/components/LuxuryBackground";
 import CustomCursor from "@/components/CustomCursor";
+import Footer from "@/components/Footer";
 
 export default function RootLayout({
   children,
@@ -11,14 +11,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="relative bg-[#FAF7F2] text-neutral-900 overflow-x-hidden selection:bg-[#C5A059]/20 selection:text-[#B88E44]">
-        {/* Soothing Golden Atmospheric Background Layer */}
         <LuxuryBackground />
-
-        {/* Custom Luxury Gold Cursor */}
         <CustomCursor />
 
-        {/* Content */}
         <div className="relative z-10">{children}</div>
+
+        <Footer />
       </body>
     </html>
   );

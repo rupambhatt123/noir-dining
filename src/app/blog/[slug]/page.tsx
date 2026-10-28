@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import PageBanner from "@/components/PageBanner";
-import Footer from "@/components/Footer";
 import { getBlogDetailData } from "@/data/getSiteData";
 
 interface PageProps {
@@ -102,8 +101,6 @@ export default async function BlogDetailsPage({ params }: PageProps) {
           </p>
         </div>
       </article>
-
-      <Footer />
     </main>
   );
 }

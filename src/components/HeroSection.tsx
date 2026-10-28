@@ -1,4 +1,3 @@
-// src/components/HeroSection.tsx
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -11,11 +10,9 @@ export default function HeroSection() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // 100% Direct Data Binding from restaurantData.json
   const bannerData =
     (siteData as any)?.categories?.Restaurant?.sections?.Banner?.variants?.NoirBanner1;
 
-  // JSON slides ya backgroundImages array mapping
   const slides =
     Array.isArray(bannerData?.slides) && bannerData.slides.length > 0
       ? bannerData.slides
@@ -33,7 +30,6 @@ export default function HeroSection() {
           }
         ];
 
-  // Auto-slide transition
   useEffect(() => {
     if (slides.length <= 1) return;
     const timer = setInterval(() => {
@@ -50,12 +46,10 @@ export default function HeroSection() {
         onClose={() => setDrawerOpen(false)}
       />
 
-      {/* Hero Section Container */}
       <section
         id="hero"
         className="relative w-full h-[75vh] sm:h-[94vh] min-h-[500px] sm:min-h-[700px] max-h-[920px] flex flex-col justify-between overflow-hidden bg-[#0A0A0A] select-none"
       >
-        {/* Slides Images from JSON */}
         <div className="absolute inset-0 z-0">
           {slides.map((slide: any, index: number) => {
             const isActive = index === currentSlide;
@@ -89,9 +83,7 @@ export default function HeroSection() {
           })}
         </div>
 
-        {/* Top Header Bar */}
         <header className="w-full max-w-7xl mx-auto px-4 sm:px-10 lg:px-14 py-4 sm:py-8 flex items-center justify-between gap-2 z-30 relative">
-          {/* Hamburger Menu */}
           <button
             onClick={() => setDrawerOpen(true)}
             aria-label="Open Navigation Menu"
@@ -102,7 +94,6 @@ export default function HeroSection() {
             <span className="w-6 sm:w-8 h-[2.5px] bg-[#C5A059] group-hover:bg-[#DEB887] transition-all duration-300" />
           </button>
 
-          {/* Centered Logo */}
           <div className="flex-1 flex justify-center items-center pointer-events-none z-10 sm:flex-initial sm:absolute sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2">
             <Link href="/" className="pointer-events-auto block">
               <div className="relative w-24 xs:w-28 sm:w-52 md:w-56 h-11 xs:h-12 sm:h-20 md:h-24 transition-transform duration-300 hover:scale-[1.02]">
@@ -118,7 +109,6 @@ export default function HeroSection() {
             </Link>
           </div>
 
-          {/* Book A Table CTA Button from JSON */}
           <Link
             href={bannerData?.ctaButton?.path || "/reservation"}
             className="group flex items-center gap-1.5 sm:gap-3 bg-[#C5A059] hover:bg-[#DEB887] text-black font-semibold tracking-wider uppercase pl-3 sm:pl-6 pr-1.5 sm:pr-2.5 py-1.5 sm:py-2.5 rounded-full transition-all duration-300 shadow-xl z-20 shrink-0 whitespace-nowrap"
@@ -132,7 +122,6 @@ export default function HeroSection() {
           </Link>
         </header>
 
-        {/* Center Hero Titles from JSON */}
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center my-auto pb-6 sm:pb-10">
           {slides.map((slide: any, idx: number) => {
             const isActive = idx === currentSlide;

@@ -1,4 +1,3 @@
-// src/app/page.tsx
 import React from "react";
 import HeroSection from "@/components/HeroSection";
 import StorySection from "@/components/StorySection";
@@ -6,7 +5,6 @@ import CulinaryStatsSection from "@/components/CulinaryStatsSection";
 import AmbienceSection from "@/components/AmbienceSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import TeamSection from "@/components/TeamSection";
-import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function HomePage() {
@@ -33,8 +31,6 @@ export default function HomePage() {
       <ScrollReveal>
         <TeamSection />
       </ScrollReveal>
-
-      <Footer />
     </main>
   );
 }

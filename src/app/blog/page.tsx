@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import PageBanner from "@/components/PageBanner";
-import Footer from "@/components/Footer";
 import { getBlogData } from "@/data/getSiteData";
 
 export default function BlogPage() {
@@ -15,7 +14,6 @@ export default function BlogPage() {
     <main className="min-h-screen bg-white">
       <PageBanner title="OUR BLOG" breadcrumbs={[{ label: "Our Blog" }]} />
 
-      {/* Top spacing reduced to pt-4 sm:pt-6 */}
       <section className="pt-4 sm:pt-6 pb-16 sm:pb-24 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="flex flex-col items-center text-center mb-10 sm:mb-14">
           <div className="flex items-center gap-3 sm:gap-4 text-[#C5A059] mb-2 sm:mb-3">
@@ -125,8 +123,6 @@ export default function BlogPage() {
           </button>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

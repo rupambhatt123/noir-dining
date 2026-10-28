@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import PageBanner from "@/components/PageBanner";
-import Footer from "@/components/Footer";
 import { getMenuData } from "@/data/getSiteData";
 
 export default function MenuPage() {
@@ -26,7 +25,6 @@ export default function MenuPage() {
       <div className="relative z-10">
         <PageBanner title="OUR MENU" breadcrumbs={[{ label: "Our Menu" }]} />
 
-        {/* Top spacing reduced to pt-4 sm:pt-6 */}
         <div className="pt-4 sm:pt-6 pb-16 sm:pb-24">
           {menu?.categories?.map((category: any, catIndex: number) => (
             <section
@@ -35,7 +33,6 @@ export default function MenuPage() {
                 catIndex !== 0 ? "pt-10 sm:pt-20" : ""
               }`}
             >
-              {/* Category Header */}
               <div className="flex flex-col items-center text-center mb-6 sm:mb-12">
                 <div className="flex items-center gap-2.5 sm:gap-4 text-[#C5A059] mb-1.5 sm:mb-2.5">
                   <span className="w-8 sm:w-24 h-[1px] bg-[#C5A059]/80" />
@@ -82,9 +79,7 @@ export default function MenuPage() {
                 </div>
               </div>
 
-              {/* Grid: Category Image + Dishes */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 lg:gap-14 items-start relative">
-                {/* Category Image */}
                 <div className="lg:col-span-5 lg:sticky lg:top-28 self-start z-20">
                   <div className="group relative w-full h-[200px] sm:h-[380px] lg:h-[520px] rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_12px_30px_rgba(197,160,89,0.18)] border sm:border-2 border-[#C5A059]/60 transition-all duration-500 ease-out cursor-pointer">
                     <div className="absolute inset-0 rounded-xl sm:rounded-2xl border-0 group-hover:border-[3px] sm:group-hover:border-[4px] border-[#DEB887] pointer-events-none transition-all duration-500 ease-out z-30" />
@@ -102,7 +97,6 @@ export default function MenuPage() {
                   </div>
                 </div>
 
-                {/* Vertical Divider for Desktop only */}
                 <div className="hidden lg:flex lg:col-span-1 justify-center relative self-stretch">
                   <div className="w-[1.5px] bg-[#C5A059]/40 h-full relative">
                     <div className="absolute top-[18%] -left-[4.5px] w-2.5 h-2.5 bg-[#FAF5EB] border border-[#C5A059] transform rotate-45" />
@@ -111,7 +105,6 @@ export default function MenuPage() {
                   </div>
                 </div>
 
-                {/* Dishes list */}
                 <div className="lg:col-span-6 flex flex-col space-y-4 sm:space-y-7 pt-1 sm:pt-2 z-10">
                   {category?.items?.map((dish: any, i: number) => (
                     <div key={i} className="group cursor-default pb-2.5 sm:pb-0 border-b border-[#C5A059]/20 sm:border-none">
@@ -134,8 +127,6 @@ export default function MenuPage() {
             </section>
           ))}
         </div>
-
-        <Footer />
       </div>
     </main>
   );
