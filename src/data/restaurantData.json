@@ -632,14 +632,14 @@
             "NoirFooter1": {
               "brandName": "NOIR",
               "tagline": "DINING",
-              "address": "Noir Dining Restaurant & Fine Dining, Bordeaux, France",
+              "address": "123 Riverside Avenue, Downtown, New York, NY 10001, USA",
               "phone": "+1 000 000 000",
               "email": "info@xyz.com",
               "navLinks": [
                 { "title": "HOME", "path": "/" },
                 { "title": "ABOUT US", "path": "/about" },
                 { "title": "MENU", "path": "/menu" },
-                { "title": "RESERVATION", "path": "/reservation" },
+                { "title": "BOOK A TABLE", "path": "/reservation" },
                 { "title": "CONTACT US", "path": "/contact" }
               ],
               "socials": [
@@ -648,7 +648,8 @@
                 { "name": "TWITTER", "url": "https://twitter.com" },
                 { "name": "LINKEDIN", "url": "https://linkedin.com" },
                 { "name": "YOUTUBE", "url": "https://youtube.com" }
-              ]
+              ],
+              "copyright": "© 2026 Noir Dining. All Rights Reserved. Powered By Lestow."
             }
           }
         }

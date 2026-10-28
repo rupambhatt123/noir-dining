@@ -18,20 +18,20 @@ export default function Navbar() {
         onClose={() => setDrawerOpen(false)}
       />
 
-      <header className="w-full max-w-7xl mx-auto px-6 md:px-12 py-8 flex items-center justify-between z-30 relative">
+      <header className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-4 sm:py-6 md:py-8 flex items-center justify-between gap-2 sm:gap-4 z-30 relative">
         <button
           onClick={() => setDrawerOpen(true)}
           aria-label="Open Navigation Menu"
-          className="group flex flex-col justify-center items-start gap-1.5 p-2 -ml-2 cursor-pointer focus:outline-none"
+          className="group flex flex-col justify-center items-start gap-1 sm:gap-1.5 p-1.5 sm:p-2 -ml-1 sm:-ml-2 cursor-pointer focus:outline-none shrink-0"
         >
-          <span className="w-8 h-[2px] bg-[#C5A059] group-hover:bg-white group-hover:w-9 transition-all duration-300" />
-          <span className="w-6 h-[2px] bg-[#C5A059] group-hover:bg-white group-hover:w-9 transition-all duration-300" />
-          <span className="w-8 h-[2px] bg-[#C5A059] group-hover:bg-white transition-all duration-300" />
+          <span className="w-6 sm:w-8 h-[2px] bg-[#C5A059] group-hover:bg-white group-hover:w-9 transition-all duration-300" />
+          <span className="w-4 sm:w-6 h-[2px] bg-[#C5A059] group-hover:bg-white group-hover:w-9 transition-all duration-300" />
+          <span className="w-6 sm:w-8 h-[2px] bg-[#C5A059] group-hover:bg-white transition-all duration-300" />
         </button>
 
-        <Link href="/" className="flex flex-col items-center select-none cursor-pointer group">
+        <Link href="/" className="flex flex-col items-center select-none cursor-pointer group shrink min-w-0">
           {"logoImage" in header && header.logoImage ? (
-            <div className="relative w-36 sm:w-44 h-16 sm:h-20 transition-transform duration-300 group-hover:scale-105">
+            <div className="relative w-24 xs:w-28 sm:w-36 md:w-44 h-11 xs:h-12 sm:h-16 md:h-20 transition-transform duration-300 group-hover:scale-105">
               <Image
                 src={(header as { logoImage: string }).logoImage}
                 alt={header.logoText || "Noir Dining Logo"}
@@ -44,14 +44,14 @@ export default function Navbar() {
           ) : (
             <>
               <div className="text-[#C5A059] mb-0.5">
-                <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 sm:w-8 sm:h-8">
                   <path d="M12 2L14.5 7.5L20 8.5L16 12.5L17 18L12 15.5L7 18L8 12.5L4 8.5L9.5 7.5L12 2Z" />
                 </svg>
               </div>
-              <h1 className="font-serif text-3xl md:text-4xl tracking-[0.25em] text-[#DEB887] font-semibold leading-none">
+              <h1 className="font-serif text-xl sm:text-3xl md:text-4xl tracking-[0.2em] sm:tracking-[0.25em] text-[#DEB887] font-semibold leading-none">
                 {header.logoText}
               </h1>
-              <span className="text-[10px] tracking-[0.45em] text-[#C5A059] font-medium mt-1">
+              <span className="text-[8px] sm:text-[10px] tracking-[0.35em] sm:tracking-[0.45em] text-[#C5A059] font-medium mt-1">
                 {header.tagline}
               </span>
             </>
@@ -60,11 +60,11 @@ export default function Navbar() {
 
         <Link
           href={header.ctaButton.path}
-          className="group flex items-center gap-3 bg-[#C5A059] hover:bg-[#DEB887] text-black font-semibold text-xs md:text-sm tracking-wider uppercase px-6 py-2.5 rounded-full transition-all duration-300 shadow-lg shadow-black/50"
+          className="group flex items-center gap-1.5 sm:gap-3 bg-[#C5A059] hover:bg-[#DEB887] text-black font-semibold text-[10px] sm:text-xs md:text-sm tracking-wider uppercase px-3 sm:px-5 md:px-6 py-2 sm:py-2.5 rounded-full transition-all duration-300 shadow-lg shadow-black/50 shrink-0 whitespace-nowrap"
         >
           <span>{header.ctaButton.text}</span>
-          <div className="w-6 h-6 rounded-full bg-black text-[#DEB887] flex items-center justify-center transition-transform group-hover:translate-x-1">
-            <ArrowRight className="w-3.5 h-3.5" />
+          <div className="w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-black text-[#DEB887] flex items-center justify-center transition-transform group-hover:translate-x-1 shrink-0">
+            <ArrowRight className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" />
           </div>
         </Link>
       </header>

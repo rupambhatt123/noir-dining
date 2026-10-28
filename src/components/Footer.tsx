@@ -1,9 +1,10 @@
+// src/components/Footer.tsx
 "use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, Mail, Clock, ChevronUp } from "lucide-react";
-import { getFooterData } from "@/data/getSiteData";
+import { Phone, Mail, ChevronUp } from "lucide-react";
+import siteData from "@/data/restaurantData.json";
 
 // Gold SVG Social Icons
 const FacebookIcon = () => (
@@ -40,7 +41,7 @@ const YoutubeIcon = () => (
 
 // Sharp Golden Diamond Divider matching Reference
 const GoldDivider = () => (
-  <div className="flex items-center justify-center w-full max-w-[190px] my-2 sm:my-2.5 opacity-75">
+  <div className="flex items-center justify-center w-full max-w-[190px] my-1.5 sm:my-2.5 opacity-75">
     <div className="h-[1px] bg-gradient-to-r from-transparent via-[#C5A059] to-[#C5A059] flex-1" />
     <span className="text-[6.5px] text-[#D4AF37] mx-1.5 leading-none">◆</span>
     <div className="h-[1px] bg-gradient-to-l from-transparent via-[#C5A059] to-[#C5A059] flex-1" />
@@ -48,30 +49,71 @@ const GoldDivider = () => (
 );
 
 export default function Footer() {
-  const footerData = getFooterData();
+  const footerData =
+    (siteData as any)?.categories?.Restaurant?.sections?.Footer?.variants?.NoirFooter1 ||
+    (siteData as any)?.footer;
+
+  const logoSrc = footerData?.logo || footerData?.logoImage || "/logo.png";
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const navLinks = [
-    { name: "HOME", href: "/" },
-    { name: "ABOUT US", href: "/about" },
-    { name: "MENU", href: "/menu" },
-    { name: "RESERVATION", href: "/reservation" },
-    { name: "CONTACT US", href: "/contact" },
+  // Nav Links dynamically loaded from JSON
+  const rawNavLinks =
+    footerData?.navLinks ||
+    footerData?.navigation ||
+    footerData?.quickLinks;
+
+  const navLinks = Array.isArray(rawNavLinks)
+    ? rawNavLinks.map((link: any) => ({
+        name: (link?.name || link?.label || link?.title || "").toUpperCase(),
+        href: link?.href || link?.url || "#",
+      }))
+    : [];
+
+  // Social Links mapping
+  const platforms = [
+    { key: "facebook", name: "FACEBOOK", icon: <FacebookIcon /> },
+    { key: "instagram", name: "INSTAGRAM", icon: <InstagramIcon /> },
+    { key: "twitter", name: "TWITTER", icon: <TwitterXIcon /> },
+    { key: "linkedin", name: "LINKEDIN", icon: <LinkedinIcon /> },
+    { key: "youtube", name: "YOUTUBE", icon: <YoutubeIcon /> },
   ];
 
-  const socialLinks = [
-    { name: "FACEBOOK", icon: <FacebookIcon />, href: "https://facebook.com" },
-    { name: "INSTAGRAM", icon: <InstagramIcon />, href: "https://instagram.com" },
-    { name: "TWITTER", icon: <TwitterXIcon />, href: "https://twitter.com" },
-    { name: "LINKEDIN", icon: <LinkedinIcon />, href: "https://linkedin.com" },
-    { name: "YOUTUBE", icon: <YoutubeIcon />, href: "https://youtube.com" },
-  ];
+  const getResolvedSocials = () => {
+    const socialsObj = footerData?.socials || footerData?.socialLinks;
+    if (socialsObj && typeof socialsObj === "object" && !Array.isArray(socialsObj)) {
+      return platforms
+        .filter((p) => Boolean(socialsObj[p.key] || socialsObj[p.name.toLowerCase()]))
+        .map((p) => ({
+          name: p.name,
+          icon: p.icon,
+          href: socialsObj[p.key] || socialsObj[p.name.toLowerCase()],
+        }));
+    }
+
+    if (Array.isArray(socialsObj) && socialsObj.length > 0) {
+      return socialsObj.map((item: any, idx: number) => {
+        const str = typeof item === "string" ? item : (item?.name || item?.platform || item?.href || item?.url || "");
+        const lower = str.toLowerCase();
+        const matched = platforms.find((p) => lower.includes(p.key)) || platforms[idx % platforms.length];
+        const href = typeof item === "string" ? item : (item?.href || item?.url || "#");
+        return {
+          name: matched.name,
+          icon: matched.icon,
+          href: href,
+        };
+      });
+    }
+
+    return [];
+  };
+
+  const socialLinks = getResolvedSocials();
 
   return (
-    <footer className="relative text-white py-14 sm:py-20 px-4 sm:px-12 lg:px-16 overflow-hidden bg-[#070707] border-t border-[#C5A059]/40 select-none">
+    <footer className="relative text-white py-10 sm:py-20 px-4 sm:px-12 lg:px-16 overflow-hidden bg-[#070707] border-t border-[#C5A059]/40 select-none">
       
       {/* Real Marble Golden Thin Veins Layer */}
       <svg
@@ -95,7 +137,6 @@ export default function Footer() {
           </linearGradient>
         </defs>
 
-        {/* Primary Veins Left to Center */}
         <path
           d="M-50,80 Q120,40 240,160 T480,240 T720,290 T980,180 T1320,320 T1500,280"
           fill="none"
@@ -109,8 +150,6 @@ export default function Footer() {
           strokeWidth="0.5"
           opacity="0.6"
         />
-
-        {/* Cross Fine Veins Right to Center */}
         <path
           d="M1500,60 Q1250,110 1100,240 T850,330 T600,360 T350,490 T-30,550"
           fill="none"
@@ -124,8 +163,6 @@ export default function Footer() {
           strokeWidth="0.6"
           opacity="0.5"
         />
-
-        {/* Subtle Branch Veins */}
         <path
           d="M240,160 Q340,90 410,120"
           fill="none"
@@ -164,13 +201,68 @@ export default function Footer() {
       {/* Main Content */}
       <div className="max-w-[1380px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center relative z-10">
         
-        {/* Left Column: Quick Navigation Links */}
-        <div className="lg:col-span-3 flex flex-col items-center order-2 lg:order-1">
-          {navLinks.map((link, idx) => (
-            <React.Fragment key={link.name}>
+        {/* Center Column: Logo & Details */}
+        <div className="lg:col-span-6 flex flex-col items-center text-center order-1 lg:order-2">
+          <Link href="/" className="relative w-44 xs:w-52 sm:w-72 h-20 xs:h-24 sm:h-32 mb-1 sm:mb-2 block">
+            <Image
+              src={logoSrc}
+              alt={footerData?.brandName || "Noir Dining Logo"}
+              fill
+              unoptimized
+              priority
+              className="object-contain drop-shadow-[0_4px_18px_rgba(212,175,55,0.4)]"
+            />
+          </Link>
+
+          {/* Golden Floral Motif Line */}
+          <div className="flex items-center justify-center w-full max-w-[240px] sm:max-w-[360px] mb-2 sm:mb-3 opacity-85">
+            <div className="h-[1px] bg-gradient-to-r from-transparent via-[#C5A059] to-[#C5A059] flex-1" />
+            <div className="mx-2 flex items-center gap-1 text-[#D4AF37]">
+              <span className="text-[6px] sm:text-[7px]">❖</span>
+              <span className="text-[9px] sm:text-[10px]">❖</span>
+              <span className="text-[6px] sm:text-[7px]">❖</span>
+            </div>
+            <div className="h-[1px] bg-gradient-to-l from-transparent via-[#C5A059] to-[#C5A059] flex-1" />
+          </div>
+
+          {/* Address */}
+          {footerData?.address && (
+            <p className="text-[11px] sm:text-[13px] text-neutral-300 tracking-wider font-sans max-w-md px-2 leading-relaxed">
+              {footerData.address}
+            </p>
+          )}
+
+          {/* Contact Details (Phone & Email) */}
+          {(footerData?.phone || footerData?.email) && (
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 text-[11px] sm:text-[13px] text-neutral-200 mt-3 font-sans">
+              {footerData?.phone && (
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full border border-[#D4AF37] flex items-center justify-center text-[#D4AF37]">
+                    <Phone className="w-2.5 h-2.5 stroke-[2.2]" />
+                  </div>
+                  <span>{footerData.phone}</span>
+                </div>
+              )}
+              {footerData?.phone && footerData?.email && (
+                <span className="text-neutral-600 hidden sm:inline">|</span>
+              )}
+              {footerData?.email && (
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-[#D4AF37]" />
+                  <span>{footerData.email}</span>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* Left Column: Nav Links */}
+        <div className="lg:col-span-3 flex flex-col items-center order-2 lg:order-1 w-full">
+          {navLinks.map((link: any, idx: number) => (
+            <React.Fragment key={idx}>
               <Link
                 href={link.href}
-                className="text-[11px] sm:text-[13px] tracking-[0.26em] text-[#E5D7B7] hover:text-[#FFD700] font-serif transition-colors py-0.5"
+                className="text-[11px] sm:text-[13px] tracking-[0.24em] sm:tracking-[0.26em] text-[#E5D7B7] hover:text-[#FFD700] font-serif transition-colors py-0.5 uppercase"
               >
                 {link.name}
               </Link>
@@ -179,65 +271,19 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Center Column: Logo, Emblem, Address, Contact & Timings */}
-        <div className="lg:col-span-6 flex flex-col items-center text-center order-1 lg:order-2">
-          {/* Logo */}
-          <Link href="/" className="relative w-56 sm:w-72 h-24 sm:h-32 mb-2 block">
-            <Image
-              src="/logo.png"
-              alt="Noir Dining"
-              fill
-              unoptimized
-              priority
-              className="object-contain drop-shadow-[0_4px_18px_rgba(212,175,55,0.4)]"
-            />
-          </Link>
-
-          {/* Reference Center Golden Floral Motif Line */}
-          <div className="flex items-center justify-center w-full max-w-[280px] sm:max-w-[360px] mb-3 opacity-85">
-            <div className="h-[1px] bg-gradient-to-r from-transparent via-[#C5A059] to-[#C5A059] flex-1" />
-            <div className="mx-2.5 flex items-center gap-1 text-[#D4AF37]">
-              <span className="text-[7px]">❖</span>
-              <span className="text-[10px]">❖</span>
-              <span className="text-[7px]">❖</span>
-            </div>
-            <div className="h-[1px] bg-gradient-to-l from-transparent via-[#C5A059] to-[#C5A059] flex-1" />
-          </div>
-
-          {/* Address */}
-          <p className="text-[11px] sm:text-[13px] text-neutral-300 tracking-wider font-sans max-w-md px-2">
-            {footerData?.address || "Noir Dining Restaurant & Fine Dining, Bordeaux, France"}
-          </p>
-
-          {/* Contact Details (Phone & Email) */}
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-[11px] sm:text-[13px] text-neutral-200 mt-3 font-sans">
-            <div className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-full border border-[#D4AF37] flex items-center justify-center text-[#D4AF37]">
-                <Phone className="w-2.5 h-2.5 stroke-[2.2]" />
-              </div>
-              <span>{footerData?.phone || "+33 123 456 789"}</span>
-            </div>
-            <span className="text-neutral-600 hidden sm:inline">|</span>
-            <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-[#D4AF37]" />
-              <span>{footerData?.email || "info@noirdining.com"}</span>
-            </div>
-          </div>
-
-          
-        </div>
-
         {/* Right Column: Social Media Links */}
-        <div className="lg:col-span-3 flex flex-col items-center order-3">
-          {socialLinks.map((social, idx) => (
-            <React.Fragment key={social.name}>
+        <div className="lg:col-span-3 flex flex-col items-center order-3 w-full">
+          {socialLinks.map((social: any, idx: number) => (
+            <React.Fragment key={idx}>
               <a
                 href={social.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center justify-start gap-4 w-full max-w-[170px] text-[11px] sm:text-[12.5px] tracking-[0.24em] text-[#E5D7B7] hover:text-[#FFD700] font-serif transition-colors py-0.5"
+                className="group flex items-center justify-center sm:justify-start gap-3 sm:gap-4 w-full max-w-[170px] text-[11px] sm:text-[12.5px] tracking-[0.22em] sm:tracking-[0.24em] text-[#E5D7B7] hover:text-[#FFD700] font-serif transition-colors py-0.5"
               >
-                <span className="flex-shrink-0 group-hover:scale-110 transition-transform">{social.icon}</span>
+                <span className="flex-shrink-0 group-hover:scale-110 transition-transform">
+                  {social.icon}
+                </span>
                 <span>{social.name}</span>
               </a>
               {idx < socialLinks.length - 1 && <GoldDivider />}
@@ -247,17 +293,26 @@ export default function Footer() {
 
       </div>
 
-      {/* Reference Exact Pill Outline "Top ^" Button */}
-      <div className="max-w-[1380px] mx-auto flex justify-center sm:justify-end mt-7 sm:mt-3 relative z-10">
+      {/* Pill Outline "Top ^" Button */}
+      <div className="max-w-[1380px] mx-auto flex justify-center sm:justify-end mt-6 sm:mt-3 relative z-10">
         <button
           onClick={scrollToTop}
           aria-label="Scroll to top"
-          className="flex items-center gap-2 px-5 py-2 rounded-full border border-[#C5A059] bg-[#070707] hover:bg-[#C5A059] text-[#E5D7B7] hover:text-black transition-all text-xs font-serif tracking-widest cursor-pointer shadow-[0_0_15px_rgba(197,160,89,0.25)]"
+          className="flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full border border-[#C5A059] bg-[#070707] hover:bg-[#C5A059] text-[#E5D7B7] hover:text-black transition-all text-[11px] sm:text-xs font-serif tracking-widest cursor-pointer shadow-[0_0_15px_rgba(197,160,89,0.25)]"
         >
           <span className="italic font-serif">Top</span>
           <ChevronUp className="w-3.5 h-3.5 stroke-[2.2]" />
         </button>
       </div>
+
+      {/* Copyright Text */}
+      {footerData?.copyright && (
+        <div className="max-w-[1380px] mx-auto text-center mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-[#C5A059]/20 relative z-10 px-4">
+          <p className="text-[10px] sm:text-xs text-neutral-400 font-sans tracking-wider leading-relaxed">
+            {footerData.copyright}
+          </p>
+        </div>
+      )}
     </footer>
   );
 }

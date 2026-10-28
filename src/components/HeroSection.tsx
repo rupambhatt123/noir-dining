@@ -90,7 +90,8 @@ export default function HeroSection() {
         </div>
 
         {/* Top Header Bar */}
-        <header className="w-full max-w-7xl mx-auto px-4 sm:px-10 lg:px-14 py-4 sm:py-8 flex items-center justify-between z-30 relative">
+        <header className="w-full max-w-7xl mx-auto px-4 sm:px-10 lg:px-14 py-4 sm:py-8 flex items-center justify-between gap-2 z-30 relative">
+          {/* Hamburger Menu */}
           <button
             onClick={() => setDrawerOpen(true)}
             aria-label="Open Navigation Menu"
@@ -101,17 +102,17 @@ export default function HeroSection() {
             <span className="w-6 sm:w-8 h-[2.5px] bg-[#C5A059] group-hover:bg-[#DEB887] transition-all duration-300" />
           </button>
 
-          {/* Logo from JSON */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none z-10">
+          {/* Centered Logo */}
+          <div className="flex-1 flex justify-center items-center pointer-events-none z-10 sm:flex-initial sm:absolute sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2">
             <Link href="/" className="pointer-events-auto block">
-              <div className="relative w-28 sm:w-52 md:w-56 h-12 sm:h-20 md:h-24 transition-transform duration-300 hover:scale-[1.02]">
+              <div className="relative w-24 xs:w-28 sm:w-52 md:w-56 h-11 xs:h-12 sm:h-20 md:h-24 transition-transform duration-300 hover:scale-[1.02]">
                 <Image
                   src={bannerData?.logoImage || "/logo.png"}
                   alt={bannerData?.logoText || "Noir Dining"}
                   fill
                   priority
                   unoptimized
-                  className="object-contain"
+                  className="object-contain drop-shadow-[0_4px_16px_rgba(212,175,55,0.35)]"
                 />
               </div>
             </Link>
@@ -120,13 +121,10 @@ export default function HeroSection() {
           {/* Book A Table CTA Button from JSON */}
           <Link
             href={bannerData?.ctaButton?.path || "/reservation"}
-            className="group flex items-center gap-1.5 sm:gap-3 bg-[#C5A059] hover:bg-[#DEB887] text-black font-semibold tracking-wider uppercase pl-3 sm:pl-6 pr-1.5 sm:pr-2.5 py-1.5 sm:py-2.5 rounded-full transition-all duration-300 shadow-xl z-20 shrink-0"
+            className="group flex items-center gap-1.5 sm:gap-3 bg-[#C5A059] hover:bg-[#DEB887] text-black font-semibold tracking-wider uppercase pl-3 sm:pl-6 pr-1.5 sm:pr-2.5 py-1.5 sm:py-2.5 rounded-full transition-all duration-300 shadow-xl z-20 shrink-0 whitespace-nowrap"
           >
             <span className="font-sans font-bold text-[10px] sm:text-xs">
-              <span className="hidden sm:inline">
-                {bannerData?.ctaButton?.text || "BOOK A TABLE"}
-              </span>
-              <span className="inline sm:hidden">BOOK</span>
+              {bannerData?.ctaButton?.text || "BOOK A TABLE"}
             </span>
             <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-black text-[#C5A059] flex items-center justify-center transition-transform group-hover:translate-x-0.5">
               <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 stroke-[2.5]" />

@@ -1,4 +1,3 @@
-// src/data/getSiteData.ts
 import data from "./restaurantData.json";
 
 const restaurantSections = (data as any)?.categories?.Restaurant?.sections;

@@ -1,8 +1,8 @@
+// src/app/team/page.tsx
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
 import PageBanner from "@/components/PageBanner";
-import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
 import { getTeamData } from "@/data/getSiteData";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -43,6 +43,33 @@ export default function TeamPage() {
   const nextMobile = () =>
     setMobileIndex((prev) => (prev === members.length - 1 ? 0 : prev + 1));
 
+  const getSocialLinks = (member: any) => [
+    {
+      icon: <FacebookIcon />,
+      href: member?.socials?.facebook || "https://facebook.com",
+      label: "Facebook",
+    },
+    {
+      icon: <InstagramIcon />,
+      href: member?.socials?.instagram || "https://instagram.com",
+      label: "Instagram",
+    },
+    {
+      icon: <WhatsappIcon />,
+      href: member?.socials?.whatsapp
+        ? member.socials.whatsapp.startsWith("http")
+          ? member.socials.whatsapp
+          : `https://wa.me/${member.socials.whatsapp.replace(/[^0-9]/g, "")}`
+        : "https://whatsapp.com",
+      label: "WhatsApp",
+    },
+    {
+      icon: <LinkedinIcon />,
+      href: member?.socials?.linkedin || "https://linkedin.com",
+      label: "LinkedIn",
+    },
+  ];
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#F6EEDD] via-[#FAF5EB] to-[#EFE3C8] text-neutral-900 relative">
       {/* 1. Ambient Luxury Golden Background Glows */}
@@ -63,7 +90,7 @@ export default function TeamPage() {
       <div className="relative z-10">
         <PageBanner title="OUR CHEFS" breadcrumbs={[{ label: "Our Chefs" }]} />
 
-        {/* 2. Team Section: Top spacing reduced to pt-4 sm:pt-6 */}
+        {/* 2. Team Section */}
         <section className="pt-4 sm:pt-6 pb-16 sm:pb-24 px-6 sm:px-10 lg:px-14">
           <div className="max-w-7xl mx-auto">
             {/* Header */}
@@ -89,7 +116,7 @@ export default function TeamPage() {
               </p>
             </div>
 
-            {/* 3. MOBILE VIEW: 1 Card in front with Smooth Swipe & Navigation Dots */}
+            {/* 3. MOBILE VIEW */}
             <div className="block sm:hidden relative px-2">
               <div className="relative w-full max-w-[340px] mx-auto min-h-[480px]">
                 {members.map((member: any, idx: number) => {
@@ -99,7 +126,7 @@ export default function TeamPage() {
                   return (
                     <div
                       key={idx}
-                      className="w-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-[0_15px_35px_rgba(197,160,89,0.25)] border border-[#C5A059]/40 animate-fadeIn"
+                      className="w-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-[0_15px_35px_rgba(197,160,89,0.25)] border border-[#C5A059]/40 animate-fadeIn cursor-default"
                     >
                       <div className="relative w-full h-[320px]">
                         <Image
@@ -120,18 +147,14 @@ export default function TeamPage() {
                         </p>
 
                         <div className="flex items-center gap-3 mt-4 text-white">
-                          {[
-                            { icon: <FacebookIcon />, href: member?.socials?.facebook || "#" },
-                            { icon: <InstagramIcon />, href: member?.socials?.instagram || "#" },
-                            { icon: <WhatsappIcon />, href: member?.socials?.whatsapp || "#" },
-                            { icon: <LinkedinIcon />, href: member?.socials?.linkedin || "#" },
-                          ].map((social, i) => (
+                          {getSocialLinks(member).map((social, i) => (
                             <a
                               key={i}
                               href={social.href}
                               target="_blank"
-                              rel="noreferrer"
-                              className="w-8 h-8 rounded-full bg-[#B88E44] flex items-center justify-center shadow-sm"
+                              rel="noopener noreferrer"
+                              aria-label={social.label}
+                              className="w-8 h-8 rounded-full bg-[#B88E44] hover:bg-[#9A7432] transition-colors flex items-center justify-center shadow-sm cursor-pointer"
                             >
                               {social.icon}
                             </a>
@@ -176,102 +199,48 @@ export default function TeamPage() {
               </div>
             </div>
 
-            {/* 4. DESKTOP & TABLET VIEW: Premium 4 Cards Grid */}
+            {/* 4. DESKTOP & TABLET VIEW: Non-clickable Static Clean Cards */}
             <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-stretch">
               {members.map((member: any, index: number) => {
-                const bioText =
-                  member.bio ||
-                  "Specializes in modern European cuisine with a focus on fresh, seasonal ingredients and artistic presentation.";
-
                 return (
                   <div
                     key={index}
-                    className="group relative flex flex-col h-[460px] bg-white rounded-2xl border border-[#C5A059]/30 hover:border-[#C5A059] shadow-md hover:shadow-[0_20px_45px_rgba(197,160,89,0.3)] transition-all duration-500 overflow-hidden cursor-pointer hover:-translate-y-1"
+                    className="relative flex flex-col h-[460px] bg-white rounded-2xl border border-[#C5A059]/30 shadow-md overflow-hidden cursor-default"
                   >
-                    {/* Default State */}
-                    <div className="flex flex-col h-full w-full transition-opacity duration-500 group-hover:opacity-0 pointer-events-auto group-hover:pointer-events-none">
-                      <div className="relative w-full h-[68%] overflow-hidden">
-                        <Image
-                          src={member.image}
-                          alt={member.name}
-                          fill
-                          unoptimized
-                          sizes="(max-width: 640px) 100vw, 25vw"
-                          className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                        />
-                      </div>
-
-                      <div className="h-[32%] px-4 py-4 flex flex-col justify-between items-center text-center bg-white">
-                        <div>
-                          <h3 className="font-serif text-lg text-[#161616] font-semibold tracking-wide">
-                            {member.name}
-                          </h3>
-                          <p className="text-[11px] uppercase tracking-[0.2em] text-[#9A7432] font-semibold mt-0.5">
-                            {member.role}
-                          </p>
-                        </div>
-
-                        <div className="flex items-center gap-2.5 text-white pb-1">
-                          {[
-                            { icon: <FacebookIcon />, href: member?.socials?.facebook || "#" },
-                            { icon: <InstagramIcon />, href: member?.socials?.instagram || "#" },
-                            { icon: <WhatsappIcon />, href: member?.socials?.whatsapp || "#" },
-                            { icon: <LinkedinIcon />, href: member?.socials?.linkedin || "#" },
-                          ].map((social, i) => (
-                            <a
-                              key={i}
-                              href={social.href}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="w-7 h-7 rounded-full bg-[#B88E44] flex items-center justify-center hover:scale-110 transition-transform shadow-sm"
-                            >
-                              {social.icon}
-                            </a>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Hover Black Overlay State */}
-                    <div className="absolute inset-0 flex flex-col justify-end p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none group-hover:pointer-events-auto">
+                    <div className="relative w-full h-[68%] overflow-hidden">
                       <Image
                         src={member.image}
                         alt={member.name}
                         fill
                         unoptimized
-                        className="object-cover object-center scale-105 group-hover:scale-100 transition-transform duration-700"
+                        sizes="(max-width: 640px) 100vw, 25vw"
+                        className="object-cover object-top"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/30" />
+                    </div>
 
-                      <div className="relative z-10 flex flex-col items-center">
-                        <h3 className="font-serif text-xl text-white font-medium tracking-wide">
+                    <div className="h-[32%] px-4 py-4 flex flex-col justify-between items-center text-center bg-white">
+                      <div>
+                        <h3 className="font-serif text-lg text-[#161616] font-semibold tracking-wide">
                           {member.name}
                         </h3>
-                        <p className="text-[11px] uppercase tracking-[0.2em] text-[#C5A059] font-medium mt-1">
+                        <p className="text-[11px] uppercase tracking-[0.2em] text-[#9A7432] font-semibold mt-0.5">
                           {member.role}
                         </p>
-                        <p className="text-[12px] text-neutral-300 leading-relaxed font-sans mt-3 line-clamp-3">
-                          {bioText}
-                        </p>
+                      </div>
 
-                        <div className="flex items-center gap-2.5 mt-5 text-[#C5A059]">
-                          {[
-                            { icon: <FacebookIcon />, href: member?.socials?.facebook || "#" },
-                            { icon: <InstagramIcon />, href: member?.socials?.instagram || "#" },
-                            { icon: <WhatsappIcon />, href: member?.socials?.whatsapp || "#" },
-                            { icon: <LinkedinIcon />, href: member?.socials?.linkedin || "#" },
-                          ].map((social, i) => (
-                            <a
-                              key={i}
-                              href={social.href}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="w-7 h-7 rounded-full border border-[#C5A059] flex items-center justify-center hover:bg-[#C5A059] hover:text-black transition-colors"
-                            >
-                              {social.icon}
-                            </a>
-                          ))}
-                        </div>
+                      <div className="flex items-center gap-2.5 text-white pb-1">
+                        {getSocialLinks(member).map((social, i) => (
+                          <a
+                            key={i}
+                            href={social.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={social.label}
+                            className="w-7 h-7 rounded-full bg-[#B88E44] hover:bg-[#9A7432] flex items-center justify-center transition-colors shadow-sm cursor-pointer"
+                          >
+                            {social.icon}
+                          </a>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -280,9 +249,6 @@ export default function TeamPage() {
             </div>
           </div>
         </section>
-
-        {/* 5. Animated Testimonials matching Home page */}
-        <TestimonialsSection />
 
         <Footer />
       </div>

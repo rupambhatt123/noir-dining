@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 import PageBanner from "@/components/PageBanner";
 import StorySection from "@/components/StorySection";
-import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
 import { getPhilosophyData } from "@/data/getSiteData";
 
@@ -91,7 +90,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <TestimonialsSection />
         <Footer />
       </div>
     </main>

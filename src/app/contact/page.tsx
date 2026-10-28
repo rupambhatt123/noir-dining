@@ -32,15 +32,15 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#FAF7F2] select-none">
+    <main className="min-h-screen bg-white select-none">
       <PageBanner title="CONTACT US" breadcrumbs={[{ label: "Contact Us" }]} />
 
-      {/* Main Form & Image Section with Compact Top Spacing */}
-      <section className="bg-white pt-4 sm:pt-6 pb-12 sm:pb-20 px-4 sm:px-8 md:px-12 border-b border-[#E8DFD1]/50">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+      {/* Main Form & Image Section - Standardized spacing to match other pages */}
+      <section className="py-10 sm:py-20 md:py-24 px-4 sm:px-8 md:px-12 max-w-7xl mx-auto border-b border-[#E8DFD1]/50">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Form / Thank you block */}
-          <div className="flex flex-col max-w-xl order-1">
+          <div className="flex flex-col w-full max-w-xl order-1">
             <div className="flex items-center gap-2.5 sm:gap-3 mb-2 sm:mb-3">
               <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#9A7432] font-semibold">
                 {contact?.badge || "GET IN TOUCH"}
@@ -63,7 +63,7 @@ export default function ContactPage() {
               <span>{contact?.responseNote}</span>
             </div>
 
-            {/* Form & Thank You View State in English */}
+            {/* Form & Thank You View State */}
             {isSubmitted ? (
               <div className="bg-[#FAF7F2] p-6 sm:p-10 rounded-xl sm:rounded-2xl border border-[#C5A059]/40 shadow-[0_12px_30px_rgba(197,160,89,0.18)] text-center animate-fadeIn">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#C5A059]/15 flex items-center justify-center mx-auto mb-3.5 sm:mb-5 text-[#A68032]">
@@ -132,7 +132,7 @@ export default function ContactPage() {
 
                 <div>
                   <textarea
-                    rows={3}
+                    rows={4}
                     required
                     placeholder="Your Message"
                     value={formData.message}
@@ -143,7 +143,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <div className="pt-1">
+                <div className="pt-2">
                   <button
                     type="submit"
                     className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 bg-[#A47133] hover:bg-[#8D5F28] text-white text-[11px] sm:text-xs uppercase tracking-widest font-semibold transition-all duration-300 shadow-sm w-full sm:w-auto"
@@ -157,7 +157,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right Column: Contact Image */}
-          <div className="relative w-full h-[240px] xs:h-[280px] sm:h-[450px] lg:h-[620px] rounded-sm overflow-hidden shadow-xl order-2">
+          <div className="relative w-full h-[320px] xs:h-[380px] sm:h-[480px] lg:h-[580px] rounded-sm overflow-hidden shadow-lg order-2">
             <Image
               src={contact?.image || "/contact.png"}
               alt="Dining table setting"
@@ -171,8 +171,8 @@ export default function ContactPage() {
       </section>
 
       {/* Map & Location Details Section */}
-      <section className="py-10 sm:py-20 lg:py-24 px-4 sm:px-8 md:px-12 max-w-7xl mx-auto">
-        <div className="flex flex-col items-center text-center mb-6 sm:mb-12">
+      <section className="py-10 sm:py-20 md:py-24 px-4 sm:px-8 md:px-12 max-w-7xl mx-auto">
+        <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
           <div className="flex items-center gap-2.5 sm:gap-3 mb-2 sm:mb-3">
             <span className="w-8 sm:w-12 h-[1px] bg-[#9A7432]" />
             <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#9A7432] font-semibold">
@@ -181,9 +181,9 @@ export default function ContactPage() {
             <span className="w-8 sm:w-12 h-[1px] bg-[#9A7432]" />
           </div>
 
-          <h2 className="font-serif text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-neutral-900 font-light tracking-wide leading-tight">
+          <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-neutral-900 font-normal tracking-wide leading-tight">
             {contact?.locationSection?.title || "Visit Our"}{" "}
-            <span className="text-[#C5A059] font-normal">
+            <span className="text-[#C5A059] font-medium">
               {contact?.locationSection?.titleHighlight || "Restaurant"}
             </span>
           </h2>
@@ -199,7 +199,7 @@ export default function ContactPage() {
         </div>
 
         {/* Google Maps Embed */}
-        <div className="w-full h-[260px] sm:h-[380px] lg:h-[480px] rounded-xl sm:rounded-sm overflow-hidden border border-[#E8DFD1] shadow-lg relative bg-neutral-200">
+        <div className="w-full h-[280px] sm:h-[400px] lg:h-[460px] rounded-sm overflow-hidden border border-[#E8DFD1] shadow-md relative bg-neutral-200">
           <iframe
             title="Restaurant Location Map"
             width="100%"
