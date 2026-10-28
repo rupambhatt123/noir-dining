@@ -59,37 +59,37 @@ export default function ReservationPage() {
       <div className="relative z-10">
         <PageBanner title="BOOK A TABLE" breadcrumbs={[{ label: "Reservation" }]} />
 
-        <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 py-20 sm:py-28">
-          <div className="flex flex-col items-center text-center mb-14 sm:mb-18">
-            <div className="flex items-center gap-4 text-[#C5A059] mb-3">
-              <span className="w-12 sm:w-20 h-[1.5px] bg-[#C5A059]/70" />
-              <span className="text-xs sm:text-sm uppercase tracking-[0.32em] text-[#9A7432] font-semibold">
+        <div className="max-w-6xl mx-auto px-4 sm:px-10 lg:px-14 py-8 sm:py-20 lg:py-28">
+          <div className="flex flex-col items-center text-center mb-8 sm:mb-14 lg:mb-18">
+            <div className="flex items-center gap-2 sm:gap-4 text-[#C5A059] mb-2 sm:mb-3">
+              <span className="w-8 sm:w-20 h-[1.5px] bg-[#C5A059]/70" />
+              <span className="text-[10px] sm:text-xs lg:text-sm uppercase tracking-[0.25em] sm:tracking-[0.32em] text-[#9A7432] font-semibold">
                 {reservationData?.badge || "RESERVATION DESK"}
               </span>
-              <span className="w-12 sm:w-20 h-[1.5px] bg-[#C5A059]/70" />
+              <span className="w-8 sm:w-20 h-[1.5px] bg-[#C5A059]/70" />
             </div>
 
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#181818] font-normal tracking-wide">
+            <h1 className="font-serif text-2xl sm:text-4xl lg:text-6xl text-[#181818] font-normal tracking-wide">
               {reservationData?.title || "RESERVE YOUR"}{" "}
               <span className="bg-gradient-to-r from-[#D4AF37] via-[#B88E3E] to-[#8C6426] bg-clip-text text-transparent font-medium">
                 {reservationData?.titleHighlight || "TABLE"}
               </span>
             </h1>
 
-            <p className="text-neutral-600 font-sans text-sm sm:text-base max-w-xl mx-auto mt-4 leading-relaxed font-normal">
+            <p className="text-neutral-600 font-sans text-xs sm:text-sm lg:text-base max-w-xl mx-auto mt-2 sm:mt-4 leading-relaxed font-normal px-2">
               {reservationData?.description || "Select your preferred date, timings, and dining lounge to experience culinary excellence crafted just for you."}
             </p>
           </div>
 
           {isSubmitted ? (
-            <div className="bg-white/90 backdrop-blur-md max-w-2xl mx-auto rounded-3xl p-10 sm:p-14 border border-[#C5A059]/40 shadow-[0_20px_50px_rgba(197,160,89,0.25)] text-center animate-fadeIn">
-              <div className="w-16 h-16 rounded-full bg-[#C5A059]/15 flex items-center justify-center mx-auto mb-6 text-[#A68032]">
-                <CheckCircle2 className="w-10 h-10" />
+            <div className="bg-white/90 backdrop-blur-md max-w-2xl mx-auto rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-14 border border-[#C5A059]/40 shadow-[0_20px_50px_rgba(197,160,89,0.25)] text-center animate-fadeIn">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#C5A059]/15 flex items-center justify-center mx-auto mb-4 sm:mb-6 text-[#A68032]">
+                <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl text-neutral-900 mb-3">
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-neutral-900 mb-2 sm:mb-3">
                 Reservation Confirmed
               </h2>
-              <p className="text-neutral-600 text-sm sm:text-base mb-6 leading-relaxed">
+              <p className="text-neutral-600 text-xs sm:text-sm lg:text-base mb-6 leading-relaxed">
                 Thank you, <span className="font-semibold text-neutral-900">{formData.name}</span>. Your reservation for{" "}
                 <span className="font-semibold text-neutral-900">{guests} guests</span> on{" "}
                 <span className="text-[#A68032] font-semibold">{selectedDate}</span> at{" "}
@@ -100,7 +100,7 @@ export default function ReservationPage() {
                   setIsSubmitted(false);
                   setSelectedTime("");
                 }}
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-gradient-to-r from-[#C5A059] to-[#DEB887] text-black font-semibold text-xs tracking-[0.2em] uppercase hover:brightness-105 transition-all shadow-md"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-[#C5A059] to-[#DEB887] text-black font-semibold text-[11px] sm:text-xs tracking-[0.2em] uppercase hover:brightness-105 transition-all shadow-md w-full sm:w-auto"
               >
                 Make Another Booking
               </button>
@@ -108,13 +108,13 @@ export default function ReservationPage() {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="bg-white/85 backdrop-blur-md rounded-3xl p-8 sm:p-12 lg:p-14 border border-[#C5A059]/40 shadow-[0_20px_50px_rgba(197,160,89,0.2)]"
+              className="bg-white/85 backdrop-blur-md rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-14 border border-[#C5A059]/40 shadow-[0_20px_50px_rgba(197,160,89,0.2)]"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
-                <div className="space-y-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-14">
+                <div className="space-y-6 sm:space-y-8">
                   <div>
-                    <label className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#9A7432] font-semibold mb-3">
-                      <CalendarIcon className="w-4 h-4 text-[#C5A059]" />
+                    <label className="flex items-center gap-2 text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#9A7432] font-semibold mb-2.5 sm:mb-3">
+                      <CalendarIcon className="w-4 h-4 text-[#C5A059] shrink-0" />
                       Select Date
                     </label>
                     <input
@@ -122,22 +122,22 @@ export default function ReservationPage() {
                       required
                       value={selectedDate}
                       onChange={(e) => setSelectedDate(e.target.value)}
-                      className="w-full bg-[#FAF7F2] border border-[#C5A059]/40 rounded-xl px-4 py-3.5 text-neutral-800 font-sans focus:outline-none focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] shadow-inner transition-all cursor-pointer"
+                      className="w-full bg-[#FAF7F2] border border-[#C5A059]/40 rounded-xl px-3.5 sm:px-4 py-3 sm:py-3.5 text-sm sm:text-base text-neutral-800 font-sans focus:outline-none focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] shadow-inner transition-all cursor-pointer"
                     />
                   </div>
 
                   <div>
-                    <label className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#9A7432] font-semibold mb-3">
-                      <Users className="w-4 h-4 text-[#C5A059]" />
+                    <label className="flex items-center gap-2 text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#9A7432] font-semibold mb-2.5 sm:mb-3">
+                      <Users className="w-4 h-4 text-[#C5A059] shrink-0" />
                       Number of Guests
                     </label>
-                    <div className="grid grid-cols-3 sm:grid-cols-6 gap-2.5">
+                    <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-2.5">
                       {guestOptions.map((num: string) => (
                         <button
                           type="button"
                           key={num}
                           onClick={() => setGuests(num)}
-                          className={`py-2.5 rounded-xl text-sm font-semibold transition-all border ${
+                          className={`py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all border ${
                             guests === num
                               ? "bg-[#C5A059] text-black border-[#C5A059] shadow-md scale-105"
                               : "bg-[#FAF7F2] text-neutral-700 border-[#C5A059]/30 hover:border-[#C5A059]"
@@ -150,19 +150,19 @@ export default function ReservationPage() {
                   </div>
 
                   <div>
-                    <label className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#9A7432] font-semibold mb-3">
-                      <Clock className="w-4 h-4 text-[#C5A059]" />
+                    <label className="flex items-center gap-2 text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#9A7432] font-semibold mb-2.5 sm:mb-3">
+                      <Clock className="w-4 h-4 text-[#C5A059] shrink-0" />
                       Lunch Slots
                     </label>
-                    <div className="grid grid-cols-3 gap-2.5">
+                    <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-3 gap-2 sm:gap-2.5">
                       {timeSlots.lunch.map((time: string) => (
                         <button
                           type="button"
                           key={time}
                           onClick={() => setSelectedTime(time)}
-                          className={`py-2.5 px-2 rounded-xl text-xs sm:text-sm font-medium transition-all border ${
+                          className={`py-2 sm:py-2.5 px-1.5 sm:px-2 rounded-xl text-[11px] sm:text-sm font-medium transition-all border ${
                             selectedTime === time
-                              ? "bg-[#181818] text-[#DEB887] border-[#C5A059] shadow-md scale-[1.03]"
+                              ? "bg-[#181818] text-[#DEB887] border-[#C5A059] shadow-md scale-[1.02]"
                               : "bg-[#FAF7F2] text-neutral-700 border-[#C5A059]/30 hover:border-[#C5A059]"
                           }`}
                         >
@@ -173,19 +173,19 @@ export default function ReservationPage() {
                   </div>
 
                   <div>
-                    <label className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#9A7432] font-semibold mb-3">
-                      <Clock className="w-4 h-4 text-[#C5A059]" />
+                    <label className="flex items-center gap-2 text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#9A7432] font-semibold mb-2.5 sm:mb-3">
+                      <Clock className="w-4 h-4 text-[#C5A059] shrink-0" />
                       Dinner Slots
                     </label>
-                    <div className="grid grid-cols-3 gap-2.5">
+                    <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-3 gap-2 sm:gap-2.5">
                       {timeSlots.dinner.map((time: string) => (
                         <button
                           type="button"
                           key={time}
                           onClick={() => setSelectedTime(time)}
-                          className={`py-2.5 px-2 rounded-xl text-xs sm:text-sm font-medium transition-all border ${
+                          className={`py-2 sm:py-2.5 px-1.5 sm:px-2 rounded-xl text-[11px] sm:text-sm font-medium transition-all border ${
                             selectedTime === time
-                              ? "bg-[#181818] text-[#DEB887] border-[#C5A059] shadow-md scale-[1.03]"
+                              ? "bg-[#181818] text-[#DEB887] border-[#C5A059] shadow-md scale-[1.02]"
                               : "bg-[#FAF7F2] text-neutral-700 border-[#C5A059]/30 hover:border-[#C5A059]"
                           }`}
                         >
@@ -196,33 +196,33 @@ export default function ReservationPage() {
                   </div>
                 </div>
 
-                <div className="space-y-6">
+                <div className="space-y-5 sm:space-y-6">
                   <div>
-                    <label className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#9A7432] font-semibold mb-3">
-                      <Utensils className="w-4 h-4 text-[#C5A059]" />
+                    <label className="flex items-center gap-2 text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#9A7432] font-semibold mb-2.5 sm:mb-3">
+                      <Utensils className="w-4 h-4 text-[#C5A059] shrink-0" />
                       Seating Ambience
                     </label>
-                    <div className="space-y-2.5">
+                    <div className="space-y-2 sm:space-y-2.5">
                       {seatingOptions.map((opt: any) => (
                         <div
                           key={opt.id}
                           onClick={() => setSeatingArea(opt.label)}
-                          className={`p-3.5 rounded-xl border cursor-pointer transition-all flex items-center justify-between ${
+                          className={`p-3 sm:p-3.5 rounded-xl border cursor-pointer transition-all flex items-center justify-between ${
                             seatingArea === opt.label
                               ? "bg-white border-[#C5A059] shadow-md ring-1 ring-[#C5A059]"
                               : "bg-[#FAF7F2] border-[#C5A059]/25 hover:border-[#C5A059]/60"
                           }`}
                         >
-                          <div>
-                            <p className="font-serif text-sm font-semibold text-neutral-900">
+                          <div className="pr-2">
+                            <p className="font-serif text-xs sm:text-sm font-semibold text-neutral-900">
                               {opt.label}
                             </p>
-                            <p className="text-xs text-neutral-500 font-sans mt-0.5">
+                            <p className="text-[11px] sm:text-xs text-neutral-500 font-sans mt-0.5">
                               {opt.desc}
                             </p>
                           </div>
                           <div
-                            className={`w-4 h-4 rounded-full border flex items-center justify-center ${
+                            className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${
                               seatingArea === opt.label
                                 ? "border-[#C5A059] bg-[#C5A059]"
                                 : "border-neutral-400"
@@ -237,9 +237,9 @@ export default function ReservationPage() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div>
-                      <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1.5">
+                      <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1 sm:mb-1.5">
                         Your Full Name *
                       </label>
                       <input
@@ -248,11 +248,11 @@ export default function ReservationPage() {
                         placeholder="e.g. Liam Foster"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-[#FAF7F2] border border-[#C5A059]/40 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059]"
+                        className="w-full bg-[#FAF7F2] border border-[#C5A059]/40 rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm focus:outline-none focus:border-[#C5A059]"
                       />
                     </div>
                     <div>
-                      <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1.5">
+                      <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1 sm:mb-1.5">
                         Phone Number *
                       </label>
                       <input
@@ -261,13 +261,13 @@ export default function ReservationPage() {
                         placeholder={siteData?.common?.phone || "+33 123 456 789"}
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full bg-[#FAF7F2] border border-[#C5A059]/40 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059]"
+                        className="w-full bg-[#FAF7F2] border border-[#C5A059]/40 rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm focus:outline-none focus:border-[#C5A059]"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1.5">
+                    <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1 sm:mb-1.5">
                       Email Address *
                     </label>
                     <input
@@ -276,12 +276,12 @@ export default function ReservationPage() {
                       placeholder={siteData?.common?.email || "info@noirdining.com"}
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-[#FAF7F2] border border-[#C5A059]/40 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059]"
+                      className="w-full bg-[#FAF7F2] border border-[#C5A059]/40 rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm focus:outline-none focus:border-[#C5A059]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1.5">
+                    <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1 sm:mb-1.5">
                       Special Dietary / Anniversary Request (Optional)
                     </label>
                     <textarea
@@ -289,13 +289,13 @@ export default function ReservationPage() {
                       placeholder="E.g., Window view, anniversary dessert with candle..."
                       value={formData.specialRequest}
                       onChange={(e) => setFormData({ ...formData, specialRequest: e.target.value })}
-                      className="w-full bg-[#FAF7F2] border border-[#C5A059]/40 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C5A059] resize-none"
+                      className="w-full bg-[#FAF7F2] border border-[#C5A059]/40 rounded-xl px-3.5 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm focus:outline-none focus:border-[#C5A059] resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full mt-4 bg-gradient-to-r from-[#C5A059] via-[#DEB887] to-[#C5A059] hover:brightness-110 text-black font-semibold text-xs tracking-[0.25em] uppercase py-4 rounded-xl shadow-lg shadow-black/15 transition-all duration-300"
+                    className="w-full mt-3 sm:mt-4 bg-gradient-to-r from-[#C5A059] via-[#DEB887] to-[#C5A059] hover:brightness-110 text-black font-semibold text-[11px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase py-3.5 sm:py-4 rounded-xl shadow-lg shadow-black/15 transition-all duration-300"
                   >
                     {reservationData?.buttonText || "Confirm Table Booking"}
                   </button>

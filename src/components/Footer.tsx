@@ -41,7 +41,7 @@ const YoutubeIcon = () => (
 
 // Sharp Golden Diamond Divider matching Reference
 const GoldDivider = () => (
-  <div className="flex items-center justify-center w-full max-w-[190px] my-1.5 sm:my-2.5 opacity-75">
+  <div className="flex items-center justify-center w-full max-w-[190px] my-1.5 sm:my-2.5 opacity-75 pointer-events-none">
     <div className="h-[1px] bg-gradient-to-r from-transparent via-[#C5A059] to-[#C5A059] flex-1" />
     <span className="text-[6.5px] text-[#D4AF37] mx-1.5 leading-none">◆</span>
     <div className="h-[1px] bg-gradient-to-l from-transparent via-[#C5A059] to-[#C5A059] flex-1" />
@@ -59,7 +59,7 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Nav Links dynamically loaded from JSON
+  // Nav Links dynamically loaded from JSON (Fixed: mapped link.path)
   const rawNavLinks =
     footerData?.navLinks ||
     footerData?.navigation ||
@@ -68,7 +68,7 @@ export default function Footer() {
   const navLinks = Array.isArray(rawNavLinks)
     ? rawNavLinks.map((link: any) => ({
         name: (link?.name || link?.label || link?.title || "").toUpperCase(),
-        href: link?.href || link?.url || "#",
+        href: link?.path || link?.href || link?.url || "/",
       }))
     : [];
 
@@ -98,7 +98,7 @@ export default function Footer() {
         const str = typeof item === "string" ? item : (item?.name || item?.platform || item?.href || item?.url || "");
         const lower = str.toLowerCase();
         const matched = platforms.find((p) => lower.includes(p.key)) || platforms[idx % platforms.length];
-        const href = typeof item === "string" ? item : (item?.href || item?.url || "#");
+        const href = typeof item === "string" ? item : (item?.url || item?.href || "#");
         return {
           name: matched.name,
           icon: matched.icon,
@@ -196,14 +196,14 @@ export default function Footer() {
       </svg>
 
       {/* Golden Shimmer Line at Top */}
-      <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent opacity-80" />
+      <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent opacity-80 pointer-events-none" />
 
       {/* Main Content */}
-      <div className="max-w-[1380px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center relative z-10">
+      <div className="max-w-[1380px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center relative z-20">
         
         {/* Center Column: Logo & Details */}
         <div className="lg:col-span-6 flex flex-col items-center text-center order-1 lg:order-2">
-          <Link href="/" className="relative w-44 xs:w-52 sm:w-72 h-20 xs:h-24 sm:h-32 mb-1 sm:mb-2 block">
+          <Link href="/" className="relative w-44 xs:w-52 sm:w-72 h-20 xs:h-24 sm:h-32 mb-1 sm:mb-2 block cursor-pointer">
             <Image
               src={logoSrc}
               alt={footerData?.brandName || "Noir Dining Logo"}
@@ -215,7 +215,7 @@ export default function Footer() {
           </Link>
 
           {/* Golden Floral Motif Line */}
-          <div className="flex items-center justify-center w-full max-w-[240px] sm:max-w-[360px] mb-2 sm:mb-3 opacity-85">
+          <div className="flex items-center justify-center w-full max-w-[240px] sm:max-w-[360px] mb-2 sm:mb-3 opacity-85 pointer-events-none">
             <div className="h-[1px] bg-gradient-to-r from-transparent via-[#C5A059] to-[#C5A059] flex-1" />
             <div className="mx-2 flex items-center gap-1 text-[#D4AF37]">
               <span className="text-[6px] sm:text-[7px]">❖</span>
@@ -256,13 +256,13 @@ export default function Footer() {
           )}
         </div>
 
-        {/* Left Column: Nav Links */}
-        <div className="lg:col-span-3 flex flex-col items-center order-2 lg:order-1 w-full">
+        {/* Left Column: Nav Links (Proper redirection enabled) */}
+        <div className="lg:col-span-3 flex flex-col items-center order-2 lg:order-1 w-full relative z-30">
           {navLinks.map((link: any, idx: number) => (
             <React.Fragment key={idx}>
               <Link
                 href={link.href}
-                className="text-[11px] sm:text-[13px] tracking-[0.24em] sm:tracking-[0.26em] text-[#E5D7B7] hover:text-[#FFD700] font-serif transition-colors py-0.5 uppercase"
+                className="text-[11px] sm:text-[13px] tracking-[0.24em] sm:tracking-[0.26em] text-[#E5D7B7] hover:text-[#FFD700] font-serif transition-colors py-0.5 uppercase cursor-pointer pointer-events-auto"
               >
                 {link.name}
               </Link>
@@ -272,14 +272,14 @@ export default function Footer() {
         </div>
 
         {/* Right Column: Social Media Links */}
-        <div className="lg:col-span-3 flex flex-col items-center order-3 w-full">
+        <div className="lg:col-span-3 flex flex-col items-center order-3 w-full relative z-30">
           {socialLinks.map((social: any, idx: number) => (
             <React.Fragment key={idx}>
               <a
                 href={social.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center justify-center sm:justify-start gap-3 sm:gap-4 w-full max-w-[170px] text-[11px] sm:text-[12.5px] tracking-[0.22em] sm:tracking-[0.24em] text-[#E5D7B7] hover:text-[#FFD700] font-serif transition-colors py-0.5"
+                className="group flex items-center justify-center sm:justify-start gap-3 sm:gap-4 w-full max-w-[170px] text-[11px] sm:text-[12.5px] tracking-[0.22em] sm:tracking-[0.24em] text-[#E5D7B7] hover:text-[#FFD700] font-serif transition-colors py-0.5 cursor-pointer pointer-events-auto"
               >
                 <span className="flex-shrink-0 group-hover:scale-110 transition-transform">
                   {social.icon}
@@ -294,7 +294,7 @@ export default function Footer() {
       </div>
 
       {/* Pill Outline "Top ^" Button */}
-      <div className="max-w-[1380px] mx-auto flex justify-center sm:justify-end mt-6 sm:mt-3 relative z-10">
+      <div className="max-w-[1380px] mx-auto flex justify-center sm:justify-end mt-6 sm:mt-3 relative z-30">
         <button
           onClick={scrollToTop}
           aria-label="Scroll to top"
@@ -307,7 +307,7 @@ export default function Footer() {
 
       {/* Copyright Text */}
       {footerData?.copyright && (
-        <div className="max-w-[1380px] mx-auto text-center mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-[#C5A059]/20 relative z-10 px-4">
+        <div className="max-w-[1380px] mx-auto text-center mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-[#C5A059]/20 relative z-20 px-4">
           <p className="text-[10px] sm:text-xs text-neutral-400 font-sans tracking-wider leading-relaxed">
             {footerData.copyright}
           </p>
