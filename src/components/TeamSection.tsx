@@ -1,4 +1,3 @@
-// src/components/TeamSection.tsx
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
@@ -34,120 +33,73 @@ export default function TeamSection() {
   const teamData = getTeamData();
   const members = teamData?.members || [];
   const [activeSlide, setActiveSlide] = useState(0);
-  const [activeTouchCard, setActiveTouchCard] = useState<number | null>(null);
+
+  const getSocialList = (member: any) => {
+    const list = [];
+    if (member?.socials?.facebook) {
+      list.push({ icon: <FacebookIcon />, href: member.socials.facebook });
+    }
+    if (member?.socials?.instagram) {
+      list.push({ icon: <InstagramIcon />, href: member.socials.instagram });
+    }
+    if (member?.socials?.whatsapp) {
+      list.push({
+        icon: <WhatsappIcon />,
+        href: member.socials.whatsapp.startsWith("http")
+          ? member.socials.whatsapp
+          : `https://wa.me/${member.socials.whatsapp.replace(/[^0-9]/g, "")}`,
+      });
+    }
+    if (member?.socials?.linkedin) {
+      list.push({ icon: <LinkedinIcon />, href: member.socials.linkedin });
+    }
+    return list;
+  };
 
   const renderCard = (member: any, index: number) => {
-    const bioText =
-      member.bio ||
-      "Specializes in modern European cuisine with a focus on fresh, seasonal ingredients and artistic presentation.";
-
-    const isTouchActive = activeTouchCard === index;
+    const socialLinks = getSocialList(member);
 
     return (
       <div
         key={index}
-        onClick={() =>
-          setActiveTouchCard((prev) => (prev === index ? null : index))
-        }
-        className="group relative flex flex-col h-[390px] sm:h-[420px] bg-white border border-transparent hover:border-[#C5A059] shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer w-full max-w-[340px] sm:max-w-none mx-auto"
+        className="relative flex flex-col h-[390px] sm:h-[420px] bg-white border border-[#E8DFD1]/80 shadow-md overflow-hidden cursor-default w-full max-w-[340px] sm:max-w-none mx-auto select-none"
       >
-        {/* DEFAULT STATE */}
-        <div
-          className={`flex flex-col h-full w-full transition-opacity duration-500 ${
-            isTouchActive ? "opacity-0 pointer-events-none" : "opacity-100"
-          } group-hover:opacity-0 pointer-events-auto group-hover:pointer-events-none`}
-        >
-          <div className="relative w-full h-[65%] overflow-hidden">
-            <Image
-              src={member.image}
-              alt={member.name}
-              fill
-              unoptimized
-              sizes="(max-width: 640px) 100vw, 25vw"
-              className="object-cover object-top"
-            />
-          </div>
-
-          <div className="h-[35%] px-4 py-4 flex flex-col justify-between items-center text-center bg-white">
-            <div>
-              <h3 className="font-serif text-lg text-[#161616] font-semibold tracking-wide">
-                {member.name}
-              </h3>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-medium mt-0.5">
-                {member.role}
-              </p>
-            </div>
-
-            <div className="flex items-center gap-2.5 text-white pb-1">
-              {[
-                { icon: <FacebookIcon />, href: member?.socials?.facebook || "#" },
-                { icon: <InstagramIcon />, href: member?.socials?.instagram || "#" },
-                { icon: <WhatsappIcon />, href: member?.socials?.whatsapp || "#" },
-                { icon: <LinkedinIcon />, href: member?.socials?.linkedin || "#" },
-              ].map((social, i) => (
-                <a
-                  key={i}
-                  href={social.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="w-7 h-7 rounded-full bg-[#B88E44] flex items-center justify-center hover:scale-110 transition-transform"
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* HOVER / TOUCH ACTIVE STATE */}
-        <div
-          className={`absolute inset-0 flex flex-col justify-end p-6 text-center transition-opacity duration-500 ${
-            isTouchActive
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          } group-hover:opacity-100 group-hover:pointer-events-auto`}
-        >
+        <div className="relative w-full h-[65%] overflow-hidden">
           <Image
             src={member.image}
             alt={member.name}
             fill
             unoptimized
-            className="object-cover object-center scale-105 group-hover:scale-100 transition-transform duration-700"
+            sizes="(max-width: 640px) 100vw, 25vw"
+            className="object-cover object-top"
           />
+        </div>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/35" />
-
-          <div className="relative z-10 flex flex-col items-center">
-            <h3 className="font-serif text-xl text-white font-medium tracking-wide">
+        <div className="h-[35%] px-4 py-4 flex flex-col justify-between items-center text-center bg-white">
+          <div>
+            <h3 className="font-serif text-lg text-[#161616] font-semibold tracking-wide">
               {member.name}
             </h3>
-            <p className="text-[10.5px] uppercase tracking-[0.2em] text-[#C5A059] font-medium mt-1">
+            <p className="text-[10px] uppercase tracking-[0.2em] text-[#9A7432] font-semibold mt-0.5">
               {member.role}
             </p>
-            <p className="text-[11.5px] text-neutral-300 leading-relaxed font-sans mt-3 line-clamp-3">
-              {bioText}
-            </p>
+          </div>
 
-            <div className="flex items-center gap-2.5 mt-5 text-[#C5A059]">
-              {[
-                { icon: <FacebookIcon />, href: member?.socials?.facebook || "#" },
-                { icon: <InstagramIcon />, href: member?.socials?.instagram || "#" },
-                { icon: <WhatsappIcon />, href: member?.socials?.whatsapp || "#" },
-                { icon: <LinkedinIcon />, href: member?.socials?.linkedin || "#" },
-              ].map((social, i) => (
+          {socialLinks.length > 0 && (
+            <div className="flex items-center gap-2.5 text-white pb-1">
+              {socialLinks.map((social, i) => (
                 <a
                   key={i}
                   href={social.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-7 h-7 rounded-full border border-[#C5A059] flex items-center justify-center hover:bg-[#C5A059] hover:text-black transition-colors"
+                  className="w-7 h-7 rounded-full bg-[#B88E44] hover:bg-[#9A7432] flex items-center justify-center transition-colors cursor-pointer"
                 >
                   {social.icon}
                 </a>
               ))}
             </div>
-          </div>
+          )}
         </div>
       </div>
     );
@@ -169,9 +121,9 @@ export default function TeamSection() {
       </div>
 
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-12">
-        {/* MOBILE VIEW: 1 Single Front Card with Smooth Transition */}
+        {/* MOBILE VIEW */}
         <div className="block sm:hidden">
-          <div className="w-full transition-all duration-500 ease-in-out">
+          <div className="w-full">
             {members[activeSlide] && renderCard(members[activeSlide], activeSlide)}
           </div>
 
@@ -180,10 +132,7 @@ export default function TeamSection() {
             {members.map((_: any, idx: number) => (
               <button
                 key={idx}
-                onClick={() => {
-                  setActiveSlide(idx);
-                  setActiveTouchCard(null);
-                }}
+                onClick={() => setActiveSlide(idx)}
                 aria-label={`Go to chef ${idx + 1}`}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   activeSlide === idx
@@ -195,7 +144,7 @@ export default function TeamSection() {
           </div>
         </div>
 
-        {/* DESKTOP & TABLET VIEW: 4 Cards Grid Unaltered */}
+        {/* DESKTOP & TABLET VIEW */}
         <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {members.map((member: any, index: number) => renderCard(member, index))}
         </div>
